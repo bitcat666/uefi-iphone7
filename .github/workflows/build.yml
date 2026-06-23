@@ -40,7 +40,7 @@ jobs:
           printf '\x2A_GCC5_AARCH64_DLINK_FLAGS       = -target aarch64-unknown-none -nostdlib -Wl,--gc-sections -Wl,-z,common-page-size=0x20\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_ASM_FLAGS         = -target aarch64-unknown-none -march=armv8-a -c -x assembler -imacros AutoGen.h\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_ASLCC_FLAGS       = -target aarch64-unknown-none -march=armv8-a -c -x assembler-with-cpp\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_SLINK_FLAGS       = crs\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_SLINK_FLAGS       = \n' >> Conf/tools_def.txt
           # Build directly with EDK2 build.py
           python3 MU_BASECORE/BaseTools/Source/Python/build/build.py \
             -p Platform/iPhone7Pkg/iPhone7.dsc \

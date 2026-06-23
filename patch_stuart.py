@@ -24,4 +24,15 @@ if os.path.exists(plugin):
     os.remove(plugin)
     print('REMOVED OverrideValidation plugin')
 
+# 3. Patch TimeStamp property to always return 0 (avoid FileNotFoundError on macOS ARM)
+misc = os.path.join(os.getcwd(), 'MU_BASECORE/BaseTools/Source/Python/Common/Misc.py')
+content = open(misc).read()
+if 'return os.stat(self.Path)[8]' in content:
+    content = content.replace(
+        'return os.stat(self.Path)[8]',
+        'return 0  # PATCHED: avoid FileNotFoundError on macOS ARM Python 3.14'
+    )
+    open(misc, 'w').write(content)
+    print('PATCHED TimeStamp in Misc.py')
+
 print('PATCHED', f)

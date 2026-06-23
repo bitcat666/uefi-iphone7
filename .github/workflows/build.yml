@@ -23,27 +23,24 @@ jobs:
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true
-          # Override Conf files AFTER setup/update
-          cd "$WORKSPACE"
-          mkdir -p Conf
-          cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
-          cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
-          printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\n" > Conf/target.txt
-          printf '\x2A_GCC5_\x2A_\x2A_FAMILY               = GCC\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_CC_PATH           = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_SLINK_PATH        = gcc-ar\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_DLINK_PATH        = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_ASM_PATH          = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_PP_PATH           = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_ASLCC_PATH        = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_ASLPP_PATH        = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_VFRPP_PATH        = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_CC_FLAGS          = -target aarch64-unknown-none -march=armv8-a -mgeneral-regs-only -fno-stack-protector -funsigned-char -ffreestanding -fshort-wchar -Wall -O2 -include AutoGen.h\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_DLINK_FLAGS       = -target aarch64-unknown-none -nostdlib -Wl,--gc-sections -Wl,-z,common-page-size=0x20\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_ASM_FLAGS         = -target aarch64-unknown-none -march=armv8-a -c -x assembler -imacros AutoGen.h\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_ASLCC_FLAGS       = -target aarch64-unknown-none -march=armv8-a -c -x assembler-with-cpp\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_SLINK_FLAGS       = crs\n' >> Conf/tools_def.txt
-          cd Platform/iPhone7Pkg
+          # Append GCC5 clang overrides to tools_def (stuart_setup already created Conf/)
+          printf '\x2A_GCC5_\x2A_\x2A_FAMILY               = GCC\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_CC_PATH           = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_SLINK_PATH        = gcc-ar\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_DLINK_PATH        = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_ASM_PATH          = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_PP_PATH           = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_ASLCC_PATH        = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_ASLPP_PATH        = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_VFRPP_PATH        = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_CC_FLAGS          = -target aarch64-unknown-none -march=armv8-a -mgeneral-regs-only -fno-stack-protector -funsigned-char -ffreestanding -fshort-wchar -Wall -O2 -include AutoGen.h\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_DLINK_FLAGS       = -target aarch64-unknown-none -nostdlib -Wl,--gc-sections -Wl,-z,common-page-size=0x20\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_ASM_FLAGS         = -target aarch64-unknown-none -march=armv8-a -c -x assembler -imacros AutoGen.h\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_ASLCC_FLAGS       = -target aarch64-unknown-none -march=armv8-a -c -x assembler-with-cpp\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          printf '\x2A_GCC5_AARCH64_SLINK_FLAGS       = crs\n' >> "$WORKSPACE/Conf/tools_def.txt"
+          # Override target.txt for GCC5+AARCH64
+          printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\n" > "$WORKSPACE/Conf/target.txt"
+          cd "$WORKSPACE/Platform/iPhone7Pkg"
           stuart_build -c PlatformBuild.py TOOL_CHAIN_TAG=GCC5
       - uses: actions/upload-artifact@v4
         with: {name: uefi-iphone7, path: Build/**/FV/*.fd}

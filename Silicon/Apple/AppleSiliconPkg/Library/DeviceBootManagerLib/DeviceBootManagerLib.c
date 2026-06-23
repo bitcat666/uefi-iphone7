@@ -913,12 +913,10 @@ DeviceBootManagerPriorityBoot (
   )
 {
   BOOLEAN     FrontPageBoot;
-  BOOLEAN     UFPBoot;
   BOOLEAN     AltDeviceBoot;
   EFI_STATUS  Status = EFI_SUCCESS;
 
   FrontPageBoot = MsBootPolicyLibIsSettingsBoot ();
-  UFPBoot = FALSE;
   AltDeviceBoot = MsBootPolicyLibIsAltBoot ();
   MsBootPolicyLibClearBootRequests ();
 

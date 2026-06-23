@@ -1,7 +1,7 @@
 #!/bin/bash
-# GCC wrapper — strips clang-specific flags, delegates to real gcc
+# GCC wrapper — strips problematic clang/M1 flags, adds -fno-lto
 REAL_GCC=/usr/bin/gcc
-args=()
+args=(-fno-lto)
 for a in "$@"; do
     case "$a" in
         -Wno-error=unaligned-access|-Wno-unused-const-variable|-Wno-sometimes-uninitialized) ;;

@@ -131,9 +131,9 @@
   gEfiMdePkgTokenSpaceGuid.PcdPciIoTranslation|0x0
 
 [LibraryClasses.common]
-  MemoryInitPeiLib|T8010FamilyPkg/Library/MemoryInitPeiLib/MemoryInitPeiLib.inf
-  MsPlatformDevicesLib  |T8010FamilyPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
+  MemoryInitPeiLib|Silicon/Apple/T8010FamilyPkg/Library/MemoryInitPeiLib/MemoryInitPeiLib.inf
+  MsPlatformDevicesLib  |Silicon/Apple/T8010FamilyPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
 [Components.common]
 
-  T8010FamilyPkg/AcpiTables/CPUAcpiTables.inf
+  Silicon/Apple/T8010FamilyPkg/AcpiTables/CPUAcpiTables.inf

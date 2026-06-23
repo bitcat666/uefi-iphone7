@@ -28,7 +28,7 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = iPhone7Pkg/iPhone7.fdf
+  FLASH_DEFINITION               = Platform/iPhone7Pkg/iPhone7.fdf
   SECURE_BOOT_ENABLE             = FALSE
   AIC_BUILD                      = TRUE #AIC build enabled by default, change to false if you want to use a vGIC
   USES_MAC_CPU                   = TRUE # a futureproofing switch, changes SoC identifier in SMBIOS
@@ -46,8 +46,8 @@
 
 [Components.common]
 
-  iPhone7Pkg/AcpiTables/DeviceAcpiTables.inf
+  Platform/iPhone7Pkg/AcpiTables/DeviceAcpiTables.inf
 
-!include T8010FamilyPkg/T8010FamilyPkg.dsc.inc
-!include AppleSiliconPkg/AppleSiliconPkg.dsc.inc
-!include AppleSiliconPkg/FrontpageDsc.inc
+!include Silicon/Apple/T8010FamilyPkg/T8010FamilyPkg.dsc.inc
+!include Silicon/Apple/AppleSiliconPkg/AppleSiliconPkg.dsc.inc
+!include Silicon/Apple/AppleSiliconPkg/FrontpageDsc.inc

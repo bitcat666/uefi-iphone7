@@ -69,9 +69,9 @@
   #
   # PCIe support is disabled for now.
   #
-  #AppleSiliconPkg/Drivers/AppleBootTimeEmbeddedFirmwareHelperDxe/AppleBootTimeEmbeddedFirmwareHelperDxe.inf
+  #Silicon/Apple/AppleSiliconPkg/Drivers/AppleBootTimeEmbeddedFirmwareHelperDxe/AppleBootTimeEmbeddedFirmwareHelperDxe.inf
 
 
 !include T600XFamilyPkg/T600XFamilyPkg.dsc.inc
-!include AppleSiliconPkg/AppleSiliconPkg.dsc.inc
-!include AppleSiliconPkg/FrontpageDsc.inc
+!include Silicon/Apple/AppleSiliconPkg/AppleSiliconPkg.dsc.inc
+!include Silicon/Apple/AppleSiliconPkg/FrontpageDsc.inc

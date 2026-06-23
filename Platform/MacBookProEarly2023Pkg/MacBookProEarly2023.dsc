@@ -48,5 +48,5 @@
 
 !include MacBookProFamilyPkg/MacBookProFamilyPkg.dsc.inc
 !include T602XFamilyPkg/T602XFamilyPkg.dsc.inc
-!include AppleSiliconPkg/AppleSiliconPkg.dsc.inc
-!include AppleSiliconPkg/FrontpageDsc.inc
+!include Silicon/Apple/AppleSiliconPkg/AppleSiliconPkg.dsc.inc
+!include Silicon/Apple/AppleSiliconPkg/FrontpageDsc.inc

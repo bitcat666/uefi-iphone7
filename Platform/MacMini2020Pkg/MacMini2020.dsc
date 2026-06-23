@@ -68,6 +68,6 @@
 MacMini2020Pkg/AcpiTables/DeviceAcpiTables.inf
 
 !include MacMiniFamilyPkg/MacMiniFamilyPkg.dsc.inc
-!include T810XFamilyPkg/T810XFamilyPkg.dsc.inc
-!include AppleSiliconPkg/AppleSiliconPkg.dsc.inc
-!include AppleSiliconPkg/FrontpageDsc.inc
+!include Silicon/Apple/T810XFamilyPkg/T810XFamilyPkg.dsc.inc
+!include Silicon/Apple/AppleSiliconPkg/AppleSiliconPkg.dsc.inc
+!include Silicon/Apple/AppleSiliconPkg/FrontpageDsc.inc

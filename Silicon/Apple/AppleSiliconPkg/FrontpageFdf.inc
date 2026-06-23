@@ -1,26 +1,26 @@
 # Continuation of [FV.FvMain]
-  #INF MsGraphicsPkg/GopOverrideDxe/GopOverrideDxe.inf
-  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf #change when non-volatile storage is ready
-  INF DfciPkg/SettingsManager/SettingsManagerDxe.inf
-  INF MsGraphicsPkg/MsUiTheme/Dxe/MsUiThemeProtocol.inf
-  #INF MsGraphicsPkg/RenderingEngineDxe/RenderingEngineDxe.inf
-  INF MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
-  INF OemPkg/BootMenu/BootMenu.inf
-  INF OemPkg/FrontPage/FrontPage.inf
+  #INF Common/MU/MsGraphicsPkg/GopOverrideDxe/GopOverrideDxe.inf
+  INF Common/MU_DFCI/DfciPkg/AuthManagerNull/AuthManagerNull.inf #change when non-volatile storage is ready
+  INF Common/MU_DFCI/DfciPkg/SettingsManager/SettingsManagerDxe.inf
+  INF Common/MU/MsGraphicsPkg/MsUiTheme/Dxe/MsUiThemeProtocol.inf
+  #INF Common/MU/MsGraphicsPkg/RenderingEngineDxe/RenderingEngineDxe.inf
+  INF Common/MU/MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
+  INF Common/MU_OEM_SAMPLE/OemPkg/BootMenu/BootMenu.inf
+  INF Common/MU_OEM_SAMPLE/OemPkg/FrontPage/FrontPage.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
-  INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
-  INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
-  INF DfciPkg/DfciManager/DfciManager.inf
-  INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
-  INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
+  INF Common/MU_DFCI/DfciPkg/DfciManager/DfciManager.inf
+  INF Common/MU/MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
+  INF Common/MU/MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
   
-  INF MsWheaPkg/HwErrBert/HwErrBert.inf
-  INF MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
+  INF Common/MU/MsWheaPkg/HwErrBert/HwErrBert.inf
+  INF Common/MU/MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
 
   # Hardware Health (Menu) application
-  INF MsWheaPkg/HwhMenu/HwhMenu.inf
+  INF Common/MU/MsWheaPkg/HwhMenu/HwhMenu.inf
 
-  INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
+  INF Common/MU/MsCorePkg/AcpiRGRT/AcpiRgrt.inf
 
   # Change AARCH64 to the appropriate architecture for your platform.
   FILE APPLICATION=PCD(gPcBdsPkgTokenSpaceGuid.PcdShellFile) {
@@ -28,24 +28,24 @@
     SECTION UI= "EdkShell"
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = AppleSiliconPkg/Include/Resources/BootLogo.bmp
+    SECTION RAW = Silicon/Apple/AppleSiliconPkg/Include/Resources/BootLogo.bmp
     SECTION UI = "Logo"
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFrontPageLogoFile) {
-    SECTION RAW = OemPkg/FrontPage/Resources/FrontpageLogo.bmp
+    SECTION RAW = Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/FrontpageLogo.bmp
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLowBatteryFile) {
-    SECTION RAW = OemPkg/FrontPage/Resources/LBAT.bmp
+    SECTION RAW = Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/LBAT.bmp
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdThermalFile) {
-    SECTION RAW = OemPkg/FrontPage/Resources/THOT.bmp
+    SECTION RAW = Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/THOT.bmp
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdVolumeUpIndicatorFile) {
-    SECTION RAW = OemPkg/FrontPage/Resources/VolumeUp.bmp
+    SECTION RAW = Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/VolumeUp.bmp
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFirmwareSettingsIndicatorFile) {
-    SECTION RAW = OemPkg/FrontPage/Resources/FirmwareSettings.bmp
+    SECTION RAW = Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/FirmwareSettings.bmp
   }
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdBootFailIndicatorFile) {
-    SECTION RAW = OemPkg/FrontPage/Resources/NoBoot.bmp
+    SECTION RAW = Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/NoBoot.bmp
   }

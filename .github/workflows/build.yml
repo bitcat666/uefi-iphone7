@@ -13,17 +13,13 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Fix FD name + package paths
-        run: |
-          # Fix FD name in FDF
-          sed -i '' 's/\[FD\.J313MacBookAirMid2020_EFI\]/[FD.iPhone7_EFI]/' Platform/iPhone7Pkg/iPhone7.fdf
-          # Run fix_paths.py
-          python3 fix_paths.py
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
       - name: Install GNU Make
-        run: |
-          brew install make
-          sudo ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /usr/local/bin/make
+        run: brew install make
 
       - name: Build macOS BaseTools
         run: |
@@ -31,21 +27,24 @@ jobs:
           cd MU_BASECORE/BaseTools/Source/C
           make -j4
 
+      - name: Fix FD name + package paths
+        run: |
+          sed -i '' 's/[FD.J313MacBookAirMid2020_EFI]/[FD.iPhone7_EFI]/' Platform/iPhone7Pkg/iPhone7.fdf
+          python3 fix_paths.py
+
       - name: Install Python deps
         run: pip3 install --break-system-packages edk2-pytool-extensions edk2-pytool-library regex
 
       - name: Setup + Build
         run: |
-          export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+          export PATH="$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
-          stuart_update -c PlatformBuild.py || true  
+          stuart_update -c PlatformBuild.py || true
           stuart_build -c PlatformBuild.py TOOL_CHAIN_TAG=GCC5
 
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: uefi-iphone7
-          path: |
-            Build/**/FV/*.fd
-            Build/**/FV/*.FV
+          path: Build/**/FV/*.fd

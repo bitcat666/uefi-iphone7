@@ -103,150 +103,150 @@ READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
-  !include AppleSiliconPkg/Include/DXEApriori.fdf.inc
+  !include Silicon/Apple/AppleSiliconPkg/Include/DXEApriori.fdf.inc
 
   #Main DXE core
-  INF MdeModulePkg/Core/Dxe/DxeMain.inf
+  INF MU_BASECORE/MdeModulePkg/Core/Dxe/DxeMain.inf
 
   #
   # PI DXE Drivers producing Architectural Protocols (EFI Services)
   #
-  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
-  INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
-  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-  INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
-  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
-  INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
-  INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  INF Silicon/ARM/TIANO/ArmPkg/Drivers/CpuDxe/CpuDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
+  INF Common/TIANO/EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+  INF Common/TIANO/EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
+  INF Common/TIANO/EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
 
-  INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 !if $(SECURE_BOOT_ENABLE) == TRUE
-  INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
+  INF Common/TIANO/SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
 !endif
 
   #
   # Multiple Console IO support
   #
-  INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
-  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-  INF MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf
-  INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf
+  INF Silicon/ARM/TIANO/ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 !if $(AIC_BUILD) == FALSE
-  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
+  INF Silicon/ARM/TIANO/ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
 !else 
-  INF AppleSiliconPkg/Drivers/AppleAicDxe/AppleAicDxe.inf
+  INF Silicon/Apple/AppleSiliconPkg/Drivers/AppleAicDxe/AppleAicDxe.inf
 !endif
-  INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
 
-  INF AppleSiliconPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF Silicon/Apple/AppleSiliconPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 
   #
   # PCIe Support
   #
-  INF ArmPkg/Drivers/ArmPciCpuIo2Dxe/ArmPciCpuIo2Dxe.inf
-  INF MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Pci/NonDiscoverablePciDeviceDxe/NonDiscoverablePciDeviceDxe.inf
+  INF Silicon/ARM/TIANO/ArmPkg/Drivers/ArmPciCpuIo2Dxe/ArmPciCpuIo2Dxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Pci/NonDiscoverablePciDeviceDxe/NonDiscoverablePciDeviceDxe.inf
 
   #NVMe Support
   #TODO: ANS2/SART driver
-  #INF AppleSiliconPkg/Drivers/AppleANS2Dxe/AppleANS2Dxe.inf
-  #INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+  #INF Silicon/Apple/AppleSiliconPkg/Drivers/AppleANS2Dxe/AppleANS2Dxe.inf
+  #INF MU_BASECORE/MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
 
   #
   # Virtual Keyboard
   #
-  INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
-  #INF OemPkg/FrontpageButtonsVolumeUp/FrontpageButtonsVolumeUp.inf
+  INF Common/TIANO/EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
+  #INF Common/MU_OEM_SAMPLE/OemPkg/FrontpageButtonsVolumeUp/FrontpageButtonsVolumeUp.inf
 
   # FV FileSystem
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   #
   # Usb Support
   #
-  INF  MdeModulePkg/Bus/Pci/UhciDxe/UhciDxe.inf
-  INF  MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf
-  INF  MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
+  INF  MU_BASECORE/MdeModulePkg/Bus/Pci/UhciDxe/UhciDxe.inf
+  INF  MU_BASECORE/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf
+  INF  MU_BASECORE/MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   #
   # USB Host Support
   #
-  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
 
   #
   # USB Mass Storage Support
   #
-  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
   #
   # Some miscellaneous Mu modules
   #
-  INF  MsCorePkg/Universal/StatusCodeHandler/Serial/Dxe/SerialStatusCodeHandlerDxe.inf
-  INF  MsCorePkg/MuVarPolicyFoundationDxe/MuVarPolicyFoundationDxe.inf
+  INF  Common/MU/MsCorePkg/Universal/StatusCodeHandler/Serial/Dxe/SerialStatusCodeHandlerDxe.inf
+  INF  Common/MU/MsCorePkg/MuVarPolicyFoundationDxe/MuVarPolicyFoundationDxe.inf
 
   #
   # FAT filesystem + GPT/MBR partitioning
   #
-  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
-  INF FatPkg/EnhancedFatDxe/Fat.inf
-  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf
-  INF AppleSiliconPkg/Drivers/BootRamdiskHelperDxe/BootRamdiskHelperDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF Common/TIANO/FatPkg/EnhancedFatDxe/Fat.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf
+  INF Silicon/Apple/AppleSiliconPkg/Drivers/BootRamdiskHelperDxe/BootRamdiskHelperDxe.inf
 
 
-  INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   #
   # ACPI Support
   #
-  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF AppleSiliconPkg/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF RuleOverride=ACPITABLE iPhone7Pkg/AcpiTables/DeviceAcpiTables.inf
-  INF RuleOverride=ACPITABLE T8010FamilyPkg/AcpiTables/CPUAcpiTables.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  INF Silicon/Apple/AppleSiliconPkg/Drivers/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
+  INF RuleOverride=ACPITABLE Platform/iPhone7Pkg/AcpiTables/DeviceAcpiTables.inf
+  INF RuleOverride=ACPITABLE Silicon/Apple/T8010FamilyPkg/AcpiTables/CPUAcpiTables.inf
   #
   # SMBIOS Support
   #
-  INF AppleSiliconPkg/Drivers/SmbiosInfoDxe/SmbiosInfoDxe.inf
-  INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
+  INF Silicon/Apple/AppleSiliconPkg/Drivers/SmbiosInfoDxe/SmbiosInfoDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
 
   #
   # UEFI applications
   #
-  INF ShellPkg/Application/Shell/Shell.inf
+  INF MU_BASECORE/ShellPkg/Application/Shell/Shell.inf
 !ifdef $(INCLUDE_TFTP_COMMAND)
-  INF ShellPkg/DynamicCommand/TftpDynamicCommand/TftpDynamicCommand.inf
+  INF MU_BASECORE/ShellPkg/DynamicCommand/TftpDynamicCommand/TftpDynamicCommand.inf
 !endif #$(INCLUDE_TFTP_COMMAND)
 
   #
   # Bds
   #
-  INF AppleSiliconPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
-  INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
-  INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-  INF MdeModulePkg/Universal/DisplayEngineDxe/DisplayEngineDxe.inf
-  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
-  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
-  INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+  INF Silicon/Apple/AppleSiliconPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/DisplayEngineDxe/DisplayEngineDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
+  INF MU_BASECORE/MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   # DT
-  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #INF Common/TIANO/EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
   FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
-    SECTION RAW = iPhone7Pkg/Resources/RegulatoryLogos.png
+    SECTION RAW = Platform/iPhone7Pkg/Resources/RegulatoryLogos.png
   }
 
   # Embedded RAMDisk (IMG format)
 #   FILE FREEFORM = 650B7CD0-94F8-46CC-88DE-8C199D41EDA3 {
-#   SECTION RAW = AppleSiliconPkg/RAMDisk/WinPE.img
+#   SECTION RAW = Silicon/Apple/AppleSiliconPkg/RAMDisk/WinPE.img
 #   SECTION UI = "Embedded RAMDisk"  
 # }
   
-!include AppleSiliconPkg/FrontpageFdf.inc
+!include Silicon/Apple/AppleSiliconPkg/FrontpageFdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
@@ -266,7 +266,7 @@ READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
-  INF RuleOverride = SELF_RELOC AppleSiliconPkg/PrePi/PrePi.inf
+  INF RuleOverride = SELF_RELOC Silicon/Apple/AppleSiliconPkg/PrePi/PrePi.inf
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
     SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
@@ -274,6 +274,6 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
-!include AppleSiliconPkg/AppleSiliconFdfRules.fdf.inc
+!include Silicon/Apple/AppleSiliconPkg/AppleSiliconFdfRules.fdf.inc
 
 

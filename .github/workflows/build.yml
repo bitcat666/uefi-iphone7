@@ -1,45 +1,28 @@
 name: Build UEFI Firmware
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: macos-14
-    env:
-      TOOLCHAIN: GCC5
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: Setup Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install GNU Make
-        run: |
+        with: {submodules: recursive}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
           brew install make
           sudo ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /usr/local/bin/make
-      - name: Build macOS BaseTools
-        run: |
+      - run: |
           export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-          cd MU_BASECORE/BaseTools/Source/C
-          make -j4
-      - name: Fix package paths
-        run: python3 fix_paths.py
-      - name: Install Python deps
-        run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
-      - name: Build UEFI Firmware
-        run: |
-          cd /Users/runner/work/uefi-iphone7/uefi-iphone7
-          chmod +x scripts/gcc-ar scripts/gcc-nm scripts/gcc-ranlib
-          export PATH="$(pwd)/scripts:$(pwd)/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$(pwd)/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
+          cd MU_BASECORE/BaseTools/Source/C && make -j4
+      - run: python3 fix_paths.py
+      - run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
+      - run: |
+          cd $GITHUB_WORKSPACE
+          chmod +x scripts/*
+          export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true
           stuart_build -c PlatformBuild.py TOOL_CHAIN_TAG=GCC5
-      - name: Upload firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: uefi-iphone7
-          path: Build/**/FV/*.fd
+      - uses: actions/upload-artifact@v4
+        with: {name: uefi-iphone7, path: Build/**/FV/*.fd}

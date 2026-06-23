@@ -1,0 +1,9 @@
+#!/bin/bash
+args=()
+for a in "$@"; do
+    case "$a" in
+        -Werror|-mstack-protector-guard=*|-mcmodel=small|-flto|-fstack-protector|-fno-pic|-fno-pie|-fpie|-ffixed-x18) ;;
+        *) args+=("$a") ;;
+    esac
+done
+exec cc "${args[@]}"

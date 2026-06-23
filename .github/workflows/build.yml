@@ -1,0 +1,89 @@
+name: Build UEFI Firmware
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    env:
+      PACKAGES_PATH: "Platform:MU_BASECORE:Common/MU:Common/TIANO:Common/MU_OEM_SAMPLE:Silicon/ARM/TIANO:Silicon/Apple:Common/MU_DFCI:mu_feature_debugger"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone submodules (PINNED COMMITS)
+        run: |
+          rm -rf MU_BASECORE Common/MU Common/TIANO Common/MU_OEM_SAMPLE Silicon/ARM/TIANO Common/MU_DFCI mu_feature_debugger
+          git clone https://github.com/Microsoft/mu_basecore.git MU_BASECORE && (cd MU_BASECORE && git checkout ba9f76c16f0f170d233f25ffb52e6ab66d7873c2)
+          git clone https://github.com/Microsoft/mu_plus.git Common/MU && (cd Common/MU && git checkout aea10a3baca8e48cfe76d869fa88460eadc5cfce)
+          git clone https://github.com/Microsoft/mu_tiano_plus.git Common/TIANO && (cd Common/TIANO && git checkout 50e18df38333cc220f5b8d30cd9946a7bd384c30)
+          git clone https://github.com/Microsoft/mu_oem_sample.git Common/MU_OEM_SAMPLE && (cd Common/MU_OEM_SAMPLE && git checkout 79efd1522566cca0169870addba3d57c3224694a)
+          git clone https://github.com/Microsoft/mu_silicon_arm_tiano.git Silicon/ARM/TIANO && (cd Silicon/ARM/TIANO && git checkout bd7850321a762c1eb2f0a3b11bcac0265c863741)
+          git clone https://github.com/microsoft/mu_feature_dfci.git Common/MU_DFCI && (cd Common/MU_DFCI && git checkout 9e06f210708c23257b3d57ff5ad02af02cdca1d5)
+          git clone https://github.com/microsoft/mu_feature_debugger.git mu_feature_debugger && (cd mu_feature_debugger && git checkout cf5dadba437b32475eef22059496c051c1fe0386)
+          cd MU_BASECORE && git submodule update --init --recursive
+          cd ../Common/TIANO && git submodule update --init --recursive
+
+      - name: Fix package paths
+        run: python3 fix_paths.py
+
+      - name: Install GNU Make
+        run: brew install make
+
+      - name: Build macOS BaseTools
+        run: |
+          export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+          cd MU_BASECORE/BaseTools/Source/C
+          gmake 2>&1 || gmake 2>&1
+
+      - name: Install Python deps
+        run: pip3 install --break-system-packages edk2-pytool-extensions edk2-pytool-library regex
+
+      - name: Build UEFI Firmware
+        run: |
+          WS=$(pwd)
+          export WORKSPACE="$WS"
+          export PATH="${WS}/MU_BASECORE/BaseTools/BinWrappers/PosixLike:${WS}/MU_BASECORE/BaseTools/Source/C/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+          export EDK_TOOLS_PATH="${WS}/MU_BASECORE/BaseTools"
+          export EDK_TOOLS_BIN="${WS}/MU_BASECORE/BaseTools/Source/C/bin"
+
+          # Create Conf directory and tools_def.txt
+          mkdir -p Conf
+          cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
+          printf '*_GCC5_*_*_FAMILY               = GCC\n' >> Conf/tools_def.txt
+          printf '*_GCC5_*_*_MAKE_PATH            = /opt/homebrew/opt/make/libexec/gnubin/make\n' >> Conf/tools_def.txt
+          printf '*_GCC5_AARCH64_CC_PATH           = cc\n' >> Conf/tools_def.txt
+          printf '*_GCC5_AARCH64_SLINK_PATH        = ar\n' >> Conf/tools_def.txt
+          printf '*_GCC5_AARCH64_DLINK_PATH        = cc\n' >> Conf/tools_def.txt
+          printf '*_GCC5_AARCH64_CC_FLAGS          = -target arm64-apple-macos -march=armv8.2-a -mgeneral-regs-only -fno-stack-protector -funsigned-char -ffreestanding -fshort-wchar -Wall -O2\n' >> Conf/tools_def.txt
+          printf '*_GCC5_AARCH64_DLINK_FLAGS       = -target arm64-apple-macos -nostdlib -Wl,--gc-sections -Wl,-z,common-page-size=0x20\n' >> Conf/tools_def.txt
+          printf '*_GCC5_AARCH64_SLINK_FLAGS       = crs\n' >> Conf/tools_def.txt
+
+          # Create target.txt
+          printf "ACTIVE_PLATFORM       = Platform/iPhone7Pkg/iPhone7.dsc\n" > Conf/target.txt
+          printf "TARGET                = DEBUG\n" >> Conf/target.txt
+          printf "TARGET_ARCH           = AARCH64\n" >> Conf/target.txt
+          printf "TOOL_CHAIN_TAG        = GCC5\n" >> Conf/target.txt
+
+          # Patch stuart deps check
+          python3 patch_stuart.py
+
+          # Build
+          build -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
+
+      - name: Verify firmware
+        run: |
+          echo "=== Looking for .fd firmware ==="
+          find Build -name "*.fd" -ls
+          echo "=== FV contents ==="
+          ls -la Build/*/DEBUG_GCC5/FV/
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: uefi-iphone7
+          path: |
+            Build/*/DEBUG_GCC5/FV/*.fd
+            Build/*/DEBUG_GCC5/FV/*.FV

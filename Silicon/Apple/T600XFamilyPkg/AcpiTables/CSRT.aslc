@@ -1,0 +1,36 @@
+/**
+ * Copyright (c) 2023, amarioguy (AppleWOA authors).
+ * 
+ * Module Name:
+ *     CSRT.aslc
+ * 
+ * Abstract:
+ *     Core System Resource Table. This source file implements the CSRT table for
+ *     "Jade" (M1 Pro/Max/Ultra) SoCs.
+ * 
+ * Environment:
+ *     UEFI firmware/runtime services.
+ * 
+ * License:
+ *     SPDX-License-Identifier: BSD-2-Clause-Patent OR MIT
+ * 
+*/
+
+#include <Library/AcpiLib.h>
+#include <Library/ArmLib.h>
+#include <Library/PcdLib.h>
+#include <IndustryStandard/Acpi.h>
+
+/**
+ * Why do we need a CSRT?
+ * 
+ * Apple platforms implement some non-standard core sytem resources, namely the interrupt controller and IOMMU. This ACPI
+ * table is to indicate to the OS that these things are present so that it can handle these cases correctly.
+ * 
+ * Since the HAL no longer recognizes CSRT tables for interrupt controllers (and probably only supports the ARM SMMU) - we'll need to
+ * have the hypervisor intercept the call and patch the kernel on demand to parse this. 
+ * We still should use this to define the SmartIO DMA controller though.
+*/
+
+
+

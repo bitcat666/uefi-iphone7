@@ -15,6 +15,7 @@ pkg_map = {
     'AdvLoggerPkg': 'Common/MU/AdvLoggerPkg', 'MsWheaPkg': 'Common/MU/MsWheaPkg',
     'DfciPkg': 'Common/MU_DFCI/DfciPkg',  # NOT Common/MU/DfciPkg!
     'MsCorePkg': 'Common/MU/MsCorePkg', 'MsGraphicsPkg': 'Common/MU/MsGraphicsPkg',
+    'XmlSupportPkg': 'Common/MU/XmlSupportPkg',
     'HidPkg': 'Common/MU/HidPkg', 'OemPkg': 'Common/MU_OEM_SAMPLE/OemPkg',
     'ZeroTouchPkg': 'Common/MU_DFCI/ZeroTouchPkg',  # NOT Common/MU/ZeroTouchPkg!
     'DebuggerFeaturePkg': 'mu_feature_debugger/DebuggerFeaturePkg',

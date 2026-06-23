@@ -23,7 +23,10 @@ jobs:
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true
-          # Append GCC5 clang overrides to tools_def (stuart_setup already created Conf/)
+          # Ensure Conf exists (stuart may not create it on unsupported host)
+          mkdir -p "$WORKSPACE/Conf"
+          cp "$WORKSPACE/MU_BASECORE/BaseTools/Conf/tools_def.template" "$WORKSPACE/Conf/tools_def.txt"
+          cp "$WORKSPACE/MU_BASECORE/BaseTools/Conf/build_rule.template" "$WORKSPACE/Conf/build_rule.txt"
           printf '\x2A_GCC5_\x2A_\x2A_FAMILY               = GCC\n' >> "$WORKSPACE/Conf/tools_def.txt"
           printf '\x2A_GCC5_AARCH64_CC_PATH           = gcc\n' >> "$WORKSPACE/Conf/tools_def.txt"
           printf '\x2A_GCC5_AARCH64_SLINK_PATH        = gcc-ar\n' >> "$WORKSPACE/Conf/tools_def.txt"

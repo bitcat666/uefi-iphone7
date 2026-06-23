@@ -71,7 +71,7 @@ jobs:
           python3 patch_stuart.py
 
           # Build
-          build -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
+          build -c -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
 
       - name: Verify firmware
         run: |

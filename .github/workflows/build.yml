@@ -20,6 +20,7 @@ jobs:
           chmod +x scripts/*
           export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/llvm/bin:/usr/local/bin:$PATH"
           export WORKSPACE="$GITHUB_WORKSPACE"
+          export EDK_TOOLS_PATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools"
           export PYTHONPATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/Python"
           cd "$WORKSPACE"
           mkdir -p Conf

@@ -1,7 +1,7 @@
 #!/bin/bash
-# GCC wrapper — strips problematic flags, adds workarounds
+# GCC wrapper — strips problematic flags, adds workarounds for EDK2 on ARM64
 REAL_GCC=/usr/bin/gcc
-args=(-fno-lto -Wno-error=maybe-uninitialized)
+args=(-fno-lto -Wno-error=maybe-uninitialized -Wno-error=incompatible-pointer-types)
 for a in "$@"; do
     case "$a" in
         -Wno-error=unaligned-access|-Wno-unused-const-variable|-Wno-sometimes-uninitialized) ;;

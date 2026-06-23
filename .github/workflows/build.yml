@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: macos-14
+    env:
+      TOOLCHAIN: GCC5
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,11 +29,11 @@ jobs:
         run: python3 fix_paths.py
       - name: Install Python deps
         run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
-      - name: Setup + Build
+      - name: Build UEFI Firmware
         run: |
-          WS=$(pwd)
+          cd /Users/runner/work/uefi-iphone7/uefi-iphone7
           chmod +x scripts/gcc-ar scripts/gcc-nm scripts/gcc-ranlib
-          export PATH="$WS/scripts:$WS/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$WS/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
+          export PATH="$(pwd)/scripts:$(pwd)/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$(pwd)/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true

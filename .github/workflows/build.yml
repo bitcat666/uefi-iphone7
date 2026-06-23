@@ -35,16 +35,11 @@ jobs:
       - name: Install Python deps
         run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
 
-      - name: Setup GCC wrappers
-        run: |
-          sudo ln -sf $(which ar) /usr/local/bin/gcc-ar
-          sudo ln -sf $(which nm) /usr/local/bin/gcc-nm
-          sudo ln -sf $(which ranlib) /usr/local/bin/gcc-ranlib
-
       - name: Setup + Build
         run: |
           WS=$(pwd)
-          export PATH="$WS/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$WS/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
+          chmod +x scripts/gcc-ar scripts/gcc-nm scripts/gcc-ranlib
+          export PATH="$WS/scripts:$WS/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$WS/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true

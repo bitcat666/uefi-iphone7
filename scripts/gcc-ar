@@ -1,0 +1,5 @@
+#!/bin/bash
+# Wrapper: translate gcc-ar calls to real ar
+args=()
+for a in "$@"; do args+=("$a"); done
+exec ar "${args[@]}"

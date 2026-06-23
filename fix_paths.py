@@ -31,7 +31,7 @@ count = 0
 # PASS 1: regex replace short package names → full paths
 for root, dirs, files in os.walk('.'):
     for f in files:
-        if not f.endswith(('.dsc', '.dsc.inc', '.fdf', '.fdf.inc', '.inc', '.dec')):
+        if not f.endswith(('.dsc', '.dsc.inc', '.fdf', '.fdf.inc', '.inc', '.inf', '.dec')):
             continue
         path = os.path.join(root, f)
         with open(path) as fp: c = fp.read()

@@ -5,7 +5,7 @@ args=()
 for a in "$@"; do
     case "$a" in
         -Wno-error=unaligned-access|-Wno-unused-const-variable|-Wno-sometimes-uninitialized) ;;
-        -mno-outline-atomics|-mno-implicit-float) ;;
+        -mno-outline-atomics|-mno-implicit-float|-flto|-fno-pic|-fno-pie|-ffixed-x18|-mcmodel=small|-mstack-protector-guard=global) ;;
         *) args+=("$a") ;;
     esac
 done

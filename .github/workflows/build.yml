@@ -9,7 +9,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: |
-          brew install make
+          brew install make llvm
           sudo ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /usr/local/bin/make
       - run: |
           export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
@@ -17,8 +17,29 @@ jobs:
       - run: python3 fix_paths.py
       - run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
       - run: |
+          cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
+          cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
+          printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\n" > Conf/target.txt
+          cat >> Conf/tools_def.txt << 'TOOLEOF'
+*_GCC5_*_*_FAMILY               = GCC
+*_GCC5_AARCH64_CC_PATH           = gcc
+*_GCC5_AARCH64_SLINK_PATH        = gcc-ar
+*_GCC5_AARCH64_DLINK_PATH        = gcc
+*_GCC5_AARCH64_ASM_PATH          = gcc
+*_GCC5_AARCH64_PP_PATH           = gcc
+*_GCC5_AARCH64_ASLCC_PATH        = gcc
+*_GCC5_AARCH64_ASLPP_PATH        = gcc
+*_GCC5_AARCH64_VFRPP_PATH        = gcc
+*_GCC5_AARCH64_CC_FLAGS          = -target aarch64-unknown-none -march=armv8-a -mgeneral-regs-only -fno-stack-protector -funsigned-char -ffreestanding -fshort-wchar -Wall -O2 -include AutoGen.h
+*_GCC5_AARCH64_DLINK_FLAGS       = -target aarch64-unknown-none -nostdlib -Wl,--gc-sections -Wl,-z,common-page-size=0x20
+*_GCC5_AARCH64_ASM_FLAGS         = -target aarch64-unknown-none -march=armv8-a -c -x assembler -imacros AutoGen.h
+*_GCC5_AARCH64_ASLCC_FLAGS       = -target aarch64-unknown-none -march=armv8-a -c -x assembler-with-cpp
+*_GCC5_AARCH64_SLINK_FLAGS       = crs
+TOOLEOF
+      - run: |
           chmod +x scripts/*
-          export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
+          export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/llvm/bin:/usr/local/bin:$PATH"
+          export WORKSPACE="$GITHUB_WORKSPACE"
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true

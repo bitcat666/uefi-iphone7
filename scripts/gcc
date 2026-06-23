@@ -1,9 +1,17 @@
 #!/bin/bash
+# GCC → clang wrapper for AARCH64 bare-metal cross-compilation
 args=()
+has_target=0
 for a in "$@"; do
     case "$a" in
-        -Werror|-mstack-protector-guard=*|-mcmodel=small|-flto|-fstack-protector|-fno-pic|-fno-pie|-fpie|-ffixed-x18) ;;
+        -target) has_target=1; args+=("$a") ;;
+        -Werror|-mstack-protector-guard=*|-mcmodel=*|-flto|-fno-pic|-fno-pie|-fpie|-ffixed-x18) ;;
         *) args+=("$a") ;;
     esac
 done
-exec cc "${args[@]}"
+# Add bare-metal target if not specified
+if [ $has_target -eq 0 ]; then
+    exec cc -target aarch64-unknown-none "${args[@]}"
+else
+    exec cc "${args[@]}"
+fi

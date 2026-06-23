@@ -15,16 +15,30 @@ jobs:
       - run: python3 fix_paths.py
       - run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
       - run: |
+          chmod +x scripts/*
           export WORKSPACE="$GITHUB_WORKSPACE"
           export EDK_TOOLS_PATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools"
           export PYTHONPATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/Python"
-          export PATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/.local/bin:$PATH"
+          export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/.local/bin:$PATH"
           cd "$WORKSPACE"
-          # Let stuart_setup create Conf, then override target.txt
           mkdir -p Conf
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
           cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
           printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\nBUILD_RULE_CONF=Conf/build_rule.txt\nTOOL_CHAIN_CONF=Conf/tools_def.txt\n" > Conf/target.txt
+          # Override DEBUG GCC5 AARCH64 to remove -flto -llto-aarch64
+          printf '\x2A_GCC5_\x2A_\x2A_FAMILY               = GCC\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_CC_PATH           = gcc\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_SLINK_PATH        = gcc-ar\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_DLINK_PATH        = gcc\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_ASM_PATH          = gcc\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_PP_PATH           = gcc\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_ASLCC_PATH        = gcc\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_ASLPP_PATH        = gcc\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_VFRPP_PATH        = gcc\n' >> Conf/tools_def.txt
+          printf '\x44EBUG_GCC5_AARCH64_CC_FLAGS    = DEF(GCC5_AARCH64_CC_FLAGS)\n' >> Conf/tools_def.txt
+          printf '\x44EBUG_GCC5_AARCH64_DLINK_FLAGS = DEF(GCC5_AARCH64_DLINK_FLAGS)\n' >> Conf/tools_def.txt
+          printf '\x52ELEASE_GCC5_AARCH64_CC_FLAGS  = DEF(GCC5_AARCH64_CC_FLAGS)\n' >> Conf/tools_def.txt
+          printf '\x52ELEASE_GCC5_AARCH64_DLINK_FLAGS = DEF(GCC5_AARCH64_DLINK_FLAGS)\n' >> Conf/tools_def.txt
           python3 MU_BASECORE/BaseTools/Source/Python/build/build.py \
             -p Platform/iPhone7Pkg/iPhone7.dsc \
             -b DEBUG -t GCC5 -a AARCH64 \

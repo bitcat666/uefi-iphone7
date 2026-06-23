@@ -13,8 +13,8 @@
   # use Clang to compile, try to use GCC5 otherwise
   *_CLANGPDB_AARCH64_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -D CLANG
   *_CLANGPDB_AARCH64_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000 # a hack to force 4k alignment - changing FDF rules was not working for whatever reason...
-  *_GCC5_AARCH64_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -D GCC
-  *_*_*_CC_FLAGS = -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -march=armv8.2-a+crypto+rcpc -Wno-error=unaligned-access
+  *_GCC5_AARCH64_CC_FLAGS = -Wno-unused-const-variable -D GCC
+  *_*_*_CC_FLAGS = -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -march=armv8.2-a+crypto+rcpc
   # TODO: add MSVC flags
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]

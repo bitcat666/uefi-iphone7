@@ -19,7 +19,9 @@ jobs:
           python-version: '3.11'
 
       - name: Install GNU Make
-        run: brew install make
+        run: |
+          brew install make
+          sudo ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /usr/local/bin/make
 
       - name: Build macOS BaseTools
         run: |
@@ -35,7 +37,8 @@ jobs:
 
       - name: Setup + Build
         run: |
-          export PATH="$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+          WS=$(pwd)
+          export PATH="$WS/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$WS/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
           cd Platform/iPhone7Pkg
           stuart_setup -c PlatformBuild.py || true
           stuart_update -c PlatformBuild.py || true

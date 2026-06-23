@@ -46,7 +46,7 @@ jobs:
           python3 MU_BASECORE/BaseTools/Source/Python/build/build.py \
             -p Platform/iPhone7Pkg/iPhone7.dsc \
             -b DEBUG -t GCC5 -a AARCH64 \
-            -n 2 \
+            -n 1 \
             -D SHIP_MODE=FALSE
       - uses: actions/upload-artifact@v4
         with: {name: uefi-iphone7, path: Build/**/FV/*.fd}

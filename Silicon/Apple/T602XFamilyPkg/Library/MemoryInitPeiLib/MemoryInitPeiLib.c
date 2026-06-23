@@ -281,7 +281,7 @@ EFI_STATUS EFIAPI MemoryPeim(IN EFI_PHYSICAL_ADDRESS UefiMemoryBase, IN UINT64 U
   //reserve secondary stacks carveouts passed into cpm-impl-reg 
   for(int i = 0; i < PcdGet32(PcdCoreCount); i++){
     CHAR8 CpuNodeName[14];
-    UINTN CarveoutLength = 0;
+    size_t CarveoutLength = 0;
 
     AsciiSPrint(CpuNodeName, ARRAY_SIZE(CpuNodeName), "/cpus/cpu%d", i);
     dt_node_t *CpuNode = dt_get(CpuNodeName);

@@ -68,7 +68,7 @@
 //   EFI_SUCCESS - GPIO number found
 
 STATIC EFI_STATUS AppleSiliconPciePlatformDxeGetResetGpios(dt_node_t *SubNode, INT32 Index, APPLE_PCIE_GPIO_DESC *Desc) {
-  UINTN len;
+  size_t len;
   //
   UINT32 *FunctionPerst = (UINT32 *)dt_node_prop(SubNode, "function-perst", &len);
   //

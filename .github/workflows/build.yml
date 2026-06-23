@@ -26,7 +26,7 @@ jobs:
           mkdir -p Conf
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
           cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
-          printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\n" > Conf/target.txt
+          printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\nBUILD_RULE_CONF=Conf/build_rule.txt\nTOOL_CHAIN_CONF=Conf/tools_def.txt\n" > Conf/target.txt
           printf '\x2A_GCC5_\x2A_\x2A_FAMILY               = GCC\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_CC_PATH           = gcc\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_SLINK_PATH        = gcc-ar\n' >> Conf/tools_def.txt

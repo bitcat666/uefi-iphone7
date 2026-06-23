@@ -59,3 +59,31 @@ for root, dirs, files in os.walk('.'):
             count += 1
 
 print(f'Fixed {count} files')
+
+# PASS 3: fix case mismatches — walk all .inf files on disk, build name→path map
+# Then fix case in DSC/FDF/INC/INF references
+case_map = {}
+for root, dirs, files in os.walk('.'):
+    for f in files:
+        if f.endswith(('.inf', '.inc', '.dec', '.dsc', '.fdf')):
+            rel = os.path.join(root, f)
+            case_map[rel.lower()] = rel
+
+case_fixed = 0
+for root, dirs, files in os.walk('.'):
+    for f in files:
+        if not f.endswith(('.dsc', '.dsc.inc', '.fdf', '.fdf.inc', '.inc', '.inf', '.dec')):
+            continue
+        path = os.path.join(root, f)
+        with open(path) as fp: c = fp.read()
+        fixed = c
+        for m in re.finditer(r'[\w/._-]+\.(?:inf|inc|dec|dsc|fdf)', c):
+            ref = m.group()
+            ref_lower = ref.lower()
+            if ref_lower in case_map and case_map[ref_lower] != ref:
+                fixed = fixed.replace(ref, case_map[ref_lower])
+        if fixed != c:
+            with open(path, 'w') as fp: fp.write(fixed)
+            case_fixed += 1
+
+print(f'Case-fixed {case_fixed} files')

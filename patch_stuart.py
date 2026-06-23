@@ -24,19 +24,24 @@ if os.path.exists(plugin):
     os.remove(plugin)
     print('REMOVED OverrideValidation plugin')
 
-# 3. Patch PathClass.__init__ to always use absolute paths
+# 3. Fix PathClass.__init__: preserve subdirectory after getWs resolution
 misc = os.path.join(os.getcwd(), 'MU_BASECORE/BaseTools/Source/Python/Common/Misc.py')
 content = open(misc).read()
-# Force self.Path to be absolute by prepending os.getcwd() when relative
-content = content.replace(
-    'self.Path = os.path.normpath(os.path.join(self.Root, self.File))',
-    "self.Path = os.path.normpath(os.path.join(os.getcwd(), self.Root, self.File))"
-)
-content = content.replace(
-    'self.Path = os.path.normpath(self.File)',
-    "self.Path = os.path.normpath(os.path.join(os.getcwd(), self.File))"
-)
-open(misc, 'w').write(content)
-print('PATCHED PathClass.__init__ absolute paths in Misc.py')
+# Replace the problematic line: self.Root = mws.getWs(self.Root, self.File)
+# We need to save the original subdir, then re-join after getWs
+old = '''self.Root = mws.getWs(self.Root, self.File)'''
+new = '''self.__SubDir = self.Root  # save subdir before getWs replaces it
+            self.Root = mws.getWs(self.Root, self.File)'''
+if old in content:
+    content = content.replace(old, new)
+    # Also fix Path construction to include subdir
+    content = content.replace(
+        '''self.Path = os.path.normpath(os.path.join(self.Root, self.File))''',
+        '''self.Path = os.path.normpath(os.path.join(self.Root, self.__SubDir, self.File))'''
+    )
+    open(misc, 'w').write(content)
+    print('PATCHED PathClass.__init__ subdir preservation in Misc.py')
+else:
+    print('WARNING: PathClass patch target not found')
 
 print('PATCHED', f)

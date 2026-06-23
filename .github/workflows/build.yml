@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Clone submodules (PINNED COMMITS)
         run: |
           rm -rf MU_BASECORE Common/MU Common/TIANO Common/MU_OEM_SAMPLE Silicon/ARM/TIANO Common/MU_DFCI mu_feature_debugger
@@ -39,18 +44,13 @@ jobs:
           gmake 2>&1 || gmake 2>&1
 
       - name: Install Python deps
-        run: pip3 install --break-system-packages edk2-pytool-extensions edk2-pytool-library regex
+        run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
 
       - name: Build UEFI Firmware
         run: |
-          # Verify submodules cloned properly
-          for f in Common/MU/PcBdsPkg/MsBootPolicy/MsBootPolicy.inf MU_BASECORE/MdePkg/MdePkg.dec Silicon/Apple/AppleSiliconPkg/AppleSiliconPkg.dec; do
-            if [ -f "$f" ]; then echo "✓ $f"; else echo "✗ MISSING: $f"; fi
-          done
-
           WS=$(pwd)
           export WORKSPACE="$WS"
-          export PATH="${WS}/MU_BASECORE/BaseTools/BinWrappers/PosixLike:${WS}/MU_BASECORE/BaseTools/Source/C/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+          export PATH="${WS}/MU_BASECORE/BaseTools/BinWrappers/PosixLike:${WS}/MU_BASECORE/BaseTools/Source/C/bin:/opt/homebrew/opt/make/libexec/gnubin:$HOME/Library/Python/3.11/bin:$PATH"
           export EDK_TOOLS_PATH="${WS}/MU_BASECORE/BaseTools"
           export EDK_TOOLS_BIN="${WS}/MU_BASECORE/BaseTools/Source/C/bin"
 
@@ -78,17 +78,8 @@ jobs:
           # Build
           build -c -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
 
-      - name: Verify firmware
-        run: |
-          echo "=== Looking for .fd firmware ==="
-          find Build -name "*.fd" -ls
-          echo "=== FV contents ==="
-          ls -la Build/*/DEBUG_GCC5/FV/
-
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: uefi-iphone7
-          path: |
-            Build/*/DEBUG_GCC5/FV/*.fd
-            Build/*/DEBUG_GCC5/FV/*.FV
+          path: Build/*/DEBUG_GCC5/FV/*.fd

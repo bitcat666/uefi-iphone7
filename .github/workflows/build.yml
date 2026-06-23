@@ -43,6 +43,11 @@ jobs:
 
       - name: Build UEFI Firmware
         run: |
+          # Verify submodules cloned properly
+          for f in Common/MU/PcBdsPkg/MsBootPolicy/MsBootPolicy.inf MU_BASECORE/MdePkg/MdePkg.dec Silicon/Apple/AppleSiliconPkg/AppleSiliconPkg.dec; do
+            if [ -f "$f" ]; then echo "✓ $f"; else echo "✗ MISSING: $f"; fi
+          done
+
           WS=$(pwd)
           export WORKSPACE="$WS"
           export PATH="${WS}/MU_BASECORE/BaseTools/BinWrappers/PosixLike:${WS}/MU_BASECORE/BaseTools/Source/C/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"

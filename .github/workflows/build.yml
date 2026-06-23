@@ -37,8 +37,9 @@ jobs:
       - name: Install GNU Make
         run: |
           brew install make
-          # Create 'make' symlink so stuart/build can find it
-          ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /opt/homebrew/opt/make/libexec/gnubin/make
+          # Create 'make' and 'gmake' in /usr/local/bin so build system finds them
+          sudo ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /usr/local/bin/make
+          sudo ln -sf /opt/homebrew/opt/make/libexec/gnubin/gmake /usr/local/bin/gmake
 
       - name: Build macOS BaseTools
         run: |
@@ -51,7 +52,8 @@ jobs:
 
       - name: Build UEFI Firmware
         run: |
-          export PATH="$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+          WS=$(pwd)
+          export PATH="$WS/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$WS/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/usr/local/bin:$PATH"
           python3 prebuild_patch.py
           cd Platform/iPhone7Pkg
           stuart_build -c PlatformBuild.py TOOL_CHAIN_TAG=GCC5

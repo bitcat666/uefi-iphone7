@@ -1,5 +1,9 @@
 #!/bin/bash
-# Wrapper: translate gcc-ar calls to real ar
 args=()
-for a in "$@"; do args+=("$a"); done
+for a in "$@"; do
+    case "$a" in
+        --plugin=*) ;;
+        *) args+=("$a") ;;
+    esac
+done
 exec ar "${args[@]}"

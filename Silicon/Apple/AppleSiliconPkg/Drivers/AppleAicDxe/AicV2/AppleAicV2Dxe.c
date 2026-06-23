@@ -21,7 +21,7 @@
 
 #define APPLE_FAST_IPI_STATUS_PENDING BIT(0)
 
-STATIC UINT64 AicV2Base;
+STATIC uint64_t AicV2Base;
 AIC_INFO_STRUCT *AicInfoStruct;
 STATIC UINT64 mAicV2IrqCfgOffset, mAicV2SoftwareSetRegOffset;
 STATIC UINT64 mAicV2SoftwareClearRegOffset, mAicV2IrqMaskSetOffset;

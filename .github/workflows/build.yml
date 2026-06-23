@@ -17,6 +17,7 @@ jobs:
       - run: python3 fix_paths.py
       - run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
       - run: |
+          mkdir -p Conf
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
           cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
           printf "ACTIVE_PLATFORM=Platform/iPhone7Pkg/iPhone7.dsc\nTARGET=DEBUG\nTARGET_ARCH=AARCH64\nTOOL_CHAIN_TAG=GCC5\n" > Conf/target.txt

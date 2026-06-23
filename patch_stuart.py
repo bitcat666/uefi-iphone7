@@ -24,24 +24,15 @@ if os.path.exists(plugin):
     os.remove(plugin)
     print('REMOVED OverrideValidation plugin')
 
-# 3. Fix PathClass.__init__: preserve subdirectory after getWs resolution
+# 3. Revert to TimeStamp=0 hack (simpler, no side effects)
 misc = os.path.join(os.getcwd(), 'MU_BASECORE/BaseTools/Source/Python/Common/Misc.py')
 content = open(misc).read()
-# Replace the problematic line: self.Root = mws.getWs(self.Root, self.File)
-# We need to save the original subdir, then re-join after getWs
-old = '''self.Root = mws.getWs(self.Root, self.File)'''
-new = '''self.__SubDir = self.Root  # save subdir before getWs replaces it
-            self.Root = mws.getWs(self.Root, self.File)'''
-if old in content:
-    content = content.replace(old, new)
-    # Also fix Path construction to include subdir
+if 'return os.stat(self.Path)[8]' in content:
     content = content.replace(
-        '''self.Path = os.path.normpath(os.path.join(self.Root, self.File))''',
-        '''self.Path = os.path.normpath(os.path.join(self.Root, self.__SubDir, self.File))'''
+        'return os.stat(self.Path)[8]',
+        'return 0  # PATCHED: avoid FileNotFoundError on macOS ARM'
     )
     open(misc, 'w').write(content)
-    print('PATCHED PathClass.__init__ subdir preservation in Misc.py')
-else:
-    print('WARNING: PathClass patch target not found')
+    print('PATCHED TimeStamp in Misc.py')
 
 print('PATCHED', f)

@@ -48,38 +48,15 @@ jobs:
 
       - name: Build UEFI Firmware
         run: |
-          WS=$(pwd)
-          export WORKSPACE="$WS"
-          export PATH="${WS}/MU_BASECORE/BaseTools/BinWrappers/PosixLike:${WS}/MU_BASECORE/BaseTools/Source/C/bin:/opt/homebrew/opt/make/libexec/gnubin:$HOME/Library/Python/3.11/bin:$PATH"
-          export EDK_TOOLS_PATH="${WS}/MU_BASECORE/BaseTools"
-          export EDK_TOOLS_BIN="${WS}/MU_BASECORE/BaseTools/Source/C/bin"
-
-          # Create Conf directory and tools_def.txt
-          mkdir -p Conf
-          cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
-          printf '*_GCC5_*_*_FAMILY               = GCC\n' >> Conf/tools_def.txt
-          printf '*_GCC5_*_*_MAKE_PATH            = /opt/homebrew/opt/make/libexec/gnubin/make\n' >> Conf/tools_def.txt
-          printf '*_GCC5_AARCH64_CC_PATH           = cc\n' >> Conf/tools_def.txt
-          printf '*_GCC5_AARCH64_SLINK_PATH        = ar\n' >> Conf/tools_def.txt
-          printf '*_GCC5_AARCH64_DLINK_PATH        = cc\n' >> Conf/tools_def.txt
-          printf '*_GCC5_AARCH64_CC_FLAGS          = -target arm64-apple-macos -march=armv8.2-a -mgeneral-regs-only -fno-stack-protector -funsigned-char -ffreestanding -fshort-wchar -Wall -O2\n' >> Conf/tools_def.txt
-          printf '*_GCC5_AARCH64_DLINK_FLAGS       = -target arm64-apple-macos -nostdlib -Wl,--gc-sections -Wl,-z,common-page-size=0x20\n' >> Conf/tools_def.txt
-          printf '*_GCC5_AARCH64_SLINK_FLAGS       = crs\n' >> Conf/tools_def.txt
-
-          # Create target.txt
-          printf "ACTIVE_PLATFORM       = Platform/iPhone7Pkg/iPhone7.dsc\n" > Conf/target.txt
-          printf "TARGET                = DEBUG\n" >> Conf/target.txt
-          printf "TARGET_ARCH           = AARCH64\n" >> Conf/target.txt
-          printf "TOOL_CHAIN_TAG        = GCC5\n" >> Conf/target.txt
-
-          # Patch stuart deps check
+          export PATH="$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:$PATH"
           python3 patch_stuart.py
-
-          # Build
-          build -c -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
+          cd Platform/iPhone7Pkg
+          stuart_build -c PlatformBuild.py TOOL_CHAIN_TAG=GCC5
 
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: uefi-iphone7
-          path: Build/*/DEBUG_GCC5/FV/*.fd
+          path: |
+            Build/*/DEBUG_GCC5/FV/*.fd
+            Build/*/DEBUG_GCC5/FV/*.FV

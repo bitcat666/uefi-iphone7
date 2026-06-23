@@ -17,6 +17,14 @@ jobs:
       - run: python3 fix_paths.py
       - run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
       - run: |
+          chmod +x scripts/*
+          export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/llvm/bin:/usr/local/bin:$PATH"
+          export WORKSPACE="$GITHUB_WORKSPACE"
+          cd Platform/iPhone7Pkg
+          stuart_setup -c PlatformBuild.py || true
+          stuart_update -c PlatformBuild.py || true
+          # Override Conf files AFTER setup/update
+          cd "$WORKSPACE"
           mkdir -p Conf
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
           cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
@@ -35,13 +43,7 @@ jobs:
           printf '\x2A_GCC5_AARCH64_ASM_FLAGS         = -target aarch64-unknown-none -march=armv8-a -c -x assembler -imacros AutoGen.h\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_ASLCC_FLAGS       = -target aarch64-unknown-none -march=armv8-a -c -x assembler-with-cpp\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_SLINK_FLAGS       = crs\n' >> Conf/tools_def.txt
-      - run: |
-          chmod +x scripts/*
-          export PATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/BinWrappers/PosixLike:$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/C/bin:$HOME/Library/Python/3.11/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/llvm/bin:/usr/local/bin:$PATH"
-          export WORKSPACE="$GITHUB_WORKSPACE"
           cd Platform/iPhone7Pkg
-          stuart_setup -c PlatformBuild.py || true
-          stuart_update -c PlatformBuild.py || true
           stuart_build -c PlatformBuild.py TOOL_CHAIN_TAG=GCC5
       - uses: actions/upload-artifact@v4
         with: {name: uefi-iphone7, path: Build/**/FV/*.fd}

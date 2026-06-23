@@ -47,7 +47,7 @@ jobs:
           make 2>&1 || make 2>&1
 
       - name: Install Python deps
-        run: pip3 install edk2-pytool-extensions edk2-pytool-library regex
+        run: python3 -m pip install edk2-pytool-extensions edk2-pytool-library regex
 
       - name: Build UEFI Firmware
         run: |

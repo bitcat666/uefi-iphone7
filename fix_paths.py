@@ -11,7 +11,7 @@ pkg_map = {
     'FatPkg': 'Common/TIANO/FatPkg',  # NOT MU_BASECORE!
     'ArmPkg': 'Silicon/ARM/TIANO/ArmPkg', 'ArmPlatformPkg': 'Silicon/ARM/TIANO/ArmPlatformPkg',
     'EmbeddedPkg': 'Common/TIANO/EmbeddedPkg', 'SecurityPkg': 'Common/TIANO/SecurityPkg',
-    'DynamicTablesPkg': 'Silicon/ARM/TIANO/DynamicTablesPkg', 'FmpDevicePkg': 'Common/TIANO/FmpDevicePkg',
+    'DynamicTablesPkg': 'Silicon/ARM/TIANO/DynamicTablesPkg', 'FmpDevicePkg': 'Common/TIANO/FmpDevicePkg', 'PrmPkg': 'Common/TIANO/PrmPkg',
     'AdvLoggerPkg': 'Common/MU/AdvLoggerPkg', 'MsWheaPkg': 'Common/MU/MsWheaPkg',
     'DfciPkg': 'Common/MU_DFCI/DfciPkg',  # NOT Common/MU/DfciPkg!
     'MsCorePkg': 'Common/MU/MsCorePkg', 'MsGraphicsPkg': 'Common/MU/MsGraphicsPkg',
@@ -23,7 +23,11 @@ pkg_map = {
     'DebuggerFeaturePkg': 'mu_feature_debugger/DebuggerFeaturePkg',
     'AppleSiliconPkg': 'Silicon/Apple/AppleSiliconPkg',
     'T8010FamilyPkg': 'Silicon/Apple/T8010FamilyPkg', 'T810XFamilyPkg': 'Silicon/Apple/T810XFamilyPkg',
+    'T600XFamilyPkg': 'Silicon/Apple/T600XFamilyPkg', 'T602XFamilyPkg': 'Silicon/Apple/T602XFamilyPkg',
     'iPhone7Pkg': 'Platform/iPhone7Pkg',
+    'MacBookAirMid2020Pkg': 'Platform/MacBookAirMid2020Pkg', 'MacBookAirFamilyPkg': 'Platform/MacBookAirFamilyPkg',
+    'MacBookProFamilyPkg': 'Platform/MacBookProFamilyPkg', 'MacBookProTouchBarFamilyPkg': 'Platform/MacBookProTouchBarFamilyPkg',
+    'MacMiniFamilyPkg': 'Platform/MacMiniFamilyPkg', 'MacStudioFamilyPkg': 'Platform/MacStudioFamilyPkg',
 }
 
 count = 0

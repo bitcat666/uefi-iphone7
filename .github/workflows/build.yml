@@ -22,6 +22,7 @@ jobs:
           export WORKSPACE="$GITHUB_WORKSPACE"
           export EDK_TOOLS_PATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools"
           export PYTHONPATH="$GITHUB_WORKSPACE/MU_BASECORE/BaseTools/Source/Python"
+          export MAKEFLAGS="-j1"
           cd "$WORKSPACE"
           mkdir -p Conf
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt

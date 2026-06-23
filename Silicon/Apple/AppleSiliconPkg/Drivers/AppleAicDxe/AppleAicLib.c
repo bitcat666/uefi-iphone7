@@ -38,7 +38,7 @@ APPLE_AIC_VERSION EFIAPI AppleArmGetAicVersion(VOID)
         }
 
         CHAR8 *CompatibleStr;
-        UINTN CompatibleStrLength = 0;
+        size_t CompatibleStrLength = 0;
         CompatibleStr = dt_node_prop(InterruptControllerNode, "compatible", &CompatibleStrLength);
 
         if (!AsciiStrCmp(CompatibleStr ,"aic,2") || !AsciiStrCmp(CompatibleStr ,"aic,3"))

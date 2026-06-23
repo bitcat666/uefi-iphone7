@@ -214,7 +214,7 @@ AppleEmbeddedGpioControllerDxeInitialize(
   UINT8 NumberOfGpioPins;
   // INT32 PinCtrlApNodes[2];
   dt_node_t *PinCtrlApNode;
-  UINT64 PinCtrlApReg;
+  uint64_t PinCtrlApReg;
   UINT32 Midr = ArmReadMidr();
   //CHAR8 PinCtrlApNodeName[13];
   // BOOLEAN BaseSocSupportsMultipleDies; // T60XX SoCs support multiple dies, indicate that boolean here

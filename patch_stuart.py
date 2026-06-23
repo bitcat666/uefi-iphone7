@@ -24,15 +24,19 @@ if os.path.exists(plugin):
     os.remove(plugin)
     print('REMOVED OverrideValidation plugin')
 
-# 3. Patch TimeStamp property to always return 0 (avoid FileNotFoundError on macOS ARM)
+# 3. Patch PathClass.__init__ to always use absolute paths
 misc = os.path.join(os.getcwd(), 'MU_BASECORE/BaseTools/Source/Python/Common/Misc.py')
 content = open(misc).read()
-if 'return os.stat(self.Path)[8]' in content:
-    content = content.replace(
-        'return os.stat(self.Path)[8]',
-        'return 0  # PATCHED: avoid FileNotFoundError on macOS ARM Python 3.14'
-    )
-    open(misc, 'w').write(content)
-    print('PATCHED TimeStamp in Misc.py')
+# Force self.Path to be absolute by prepending os.getcwd() when relative
+content = content.replace(
+    'self.Path = os.path.normpath(os.path.join(self.Root, self.File))',
+    "self.Path = os.path.normpath(os.path.join(os.getcwd(), self.Root, self.File))"
+)
+content = content.replace(
+    'self.Path = os.path.normpath(self.File)',
+    "self.Path = os.path.normpath(os.path.join(os.getcwd(), self.File))"
+)
+open(misc, 'w').write(content)
+print('PATCHED PathClass.__init__ absolute paths in Misc.py')
 
 print('PATCHED', f)

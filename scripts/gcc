@@ -1,5 +1,6 @@
 #!/bin/bash
-# GCC wrapper — strips clang-specific flags, passes through to real gcc on Linux
+# GCC wrapper — strips clang-specific flags, delegates to real gcc
+REAL_GCC=/usr/bin/gcc
 args=()
 for a in "$@"; do
     case "$a" in
@@ -8,4 +9,4 @@ for a in "$@"; do
         *) args+=("$a") ;;
     esac
 done
-exec gcc "${args[@]}"
+exec "$REAL_GCC" "${args[@]}"

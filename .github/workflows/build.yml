@@ -35,7 +35,7 @@ jobs:
           printf '\x2A_GCC5_AARCH64_ASLCC_PATH        = gcc\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_ASLPP_PATH        = gcc\n' >> Conf/tools_def.txt
           printf '\x2A_GCC5_AARCH64_VFRPP_PATH        = gcc\n' >> Conf/tools_def.txt
-          printf '\x2A_GCC5_AARCH64_ASM_FLAGS         = -march=armv8-a -Wa,-march=armv8-a -c -x assembler -imacros AutoGen.h\n' >> Conf/tools_def.txt
+          printf '\x2A_GCC5_AARCH64_ASM_FLAGS         = -march=armv8-a -Wa,-march=armv8-a+simd -c -x assembler -imacros AutoGen.h\n' >> Conf/tools_def.txt
           printf '\x44EBUG_GCC5_AARCH64_CC_FLAGS    = DEF(GCC5_AARCH64_CC_FLAGS)\n' >> Conf/tools_def.txt
           printf '\x44EBUG_GCC5_AARCH64_DLINK_FLAGS = DEF(GCC5_AARCH64_DLINK_FLAGS)\n' >> Conf/tools_def.txt
           printf '\x52ELEASE_GCC5_AARCH64_CC_FLAGS  = DEF(GCC5_AARCH64_CC_FLAGS)\n' >> Conf/tools_def.txt

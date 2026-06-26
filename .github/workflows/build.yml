@@ -15,24 +15,29 @@ jobs:
       - name: Install Tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq gcc-aarch64-linux-gnu nasm build-essential uuid-dev
+          sudo apt-get install -y -qq gcc-aarch64-linux-gnu nasm
           pip3 install --upgrade pip
           pip3 install -r pip-requirements.txt
 
       - name: Remove NASM NuGet dep
         run: rm -f MU_BASECORE/BaseTools/Bin/nasm_ext_dep.yaml
 
-      - name: Build BaseTools
+      - name: Generate build_rule.txt
         run: |
-          cd MU_BASECORE
-          make -C BaseTools -j$(nproc)
+          mkdir -p Conf
+          cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
+          cp MU_BASECORE/BaseTools/Conf/target.template Conf/target.txt
+          cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
+          # Fix target.txt for our platform
+          sed -i 's/^TARGET .*/TARGET = DEBUG/' Conf/target.txt
+          sed -i 's/^TARGET_ARCH .*/TARGET_ARCH = AARCH64/' Conf/target.txt
+          sed -i 's/^TOOL_CHAIN_TAG .*/TOOL_CHAIN_TAG = GCC5/' Conf/target.txt
+          echo "ACTIVE_PLATFORM = Platform/iPhone7Pkg/iPhone7.dsc" >> Conf/target.txt
 
-      - name: Setup & Build UEFI
+      - name: Update & Build
         run: |
-          cd MU_BASECORE
-          source BaseTools/edksetup.sh
-          cd ..
-          build -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
+          stuart_update -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5
+          stuart_build -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5 TARGET=DEBUG
           
       - uses: actions/upload-artifact@v4
         with:

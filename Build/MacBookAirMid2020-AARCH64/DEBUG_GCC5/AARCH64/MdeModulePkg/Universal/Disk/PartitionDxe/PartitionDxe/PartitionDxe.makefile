@@ -1,0 +1,1 @@
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe/GNUmakefile

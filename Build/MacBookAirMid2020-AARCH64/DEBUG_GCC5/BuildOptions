@@ -1,0 +1,4 @@
+gCommandLineDefines: {'ARCH': 'AARCH64'}
+BuildOptionPcd: []
+Active Platform: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/MacBookAirMid2020Pkg/MacBookAirMid2020.dsc
+Flash Image Definition: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/MacBookAirMid2020Pkg/MacBookAirMid2020.fdf

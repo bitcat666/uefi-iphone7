@@ -1,0 +1,4 @@
+ACTIVE_PLATFORM       = Platform/iPhone7Pkg/iPhone7.dsc
+TARGET                = DEBUG
+TARGET_ARCH           = AARCH64
+TOOL_CHAIN_TAG        = GCC5

@@ -1,0 +1,11 @@
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmMisc.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmBootDescription.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmConnect.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/InternalBm.h
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmBoot.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmLoadOption.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmHotkey.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmConsole.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/UefiBootManagerLib/BmDriverHealth.c
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib/DEBUG/AutoGen.h

@@ -1,0 +1,74 @@
+## @file
+#  Borrowed from edk2-platforms/JunoPkg and AmpereAltraPkg, original header below.
+#  Copyright (c) 2023, amarioguy (AppleWOA authors)
+#  ACPI table data and ASL sources required to boot the platform. (Generic to all SoCs)
+#
+#  Copyright (c) 2014-2017, ARM Ltd. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+[Defines]
+  INF_VERSION                = 0x00010017
+  BASE_NAME                  = GenericAcpiTables
+  FILE_GUID                  = a57bccf6-0ca5-439a-b8a6-eb40ff035827
+  MODULE_TYPE                = USER_DEFINED
+  VERSION_STRING             = 1.0
+
+[Packages.AARCH64]
+
+[Binaries.AARCH64]
+  ACPI|GTDT.acpi
+
+[PatchPcd.AARCH64]
+
+[Protocols.AARCH64]
+
+[Ppis.AARCH64]
+
+[Guids.AARCH64]
+
+[PcdEx.AARCH64]
+
+[LibraryClasses.AARCH64]
+## @LIB_INSTANCES
+
+[Depex.AARCH64]
+
+
+
+
+
+
+[BuildOptions.AARCH64]
+## @AsBuilt
+##   GCC:DEBUG_GCC5_AARCH64_DEPS_FLAGS = -MMD -MF $@.deps
+##   GCC:DEBUG_GCC5_AARCH64_ASMLINK_FLAGS = /nologo /tiny
+##   GCC:DEBUG_GCC5_AARCH64_RC_FLAGS = -I binary -O elf64-littleaarch64 -B aarch64 --rename-section .data=.hii --add-section .note.gnu.property=/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/GnuNoteBti.bin --set-section-flags .note.gnu.property=alloc,readonly
+##   GCC:DEBUG_GCC5_AARCH64_VFR_FLAGS = -l -n
+##   GCC:DEBUG_GCC5_AARCH64_OPTROM_FLAGS = -e
+##   GCC:DEBUG_GCC5_AARCH64_PP_FLAGS = -target aarch64-unknown-none -E -x assembler-with-cpp
+##   GCC:DEBUG_GCC5_AARCH64_ASL_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_SLINK_FLAGS = crs
+##   GCC:DEBUG_GCC5_AARCH64_OBJCOPY_FLAGS = objcopy not needed for
+##   GCC:DEBUG_GCC5_AARCH64_PLATFORM_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_VFRPP_FLAGS = $(ARCHCC_FLAGS) $(PLATFORM_FLAGS) -x c -E -P -DVFRCOMPILE --include $(MODULE_NAME)StrDefs.h
+##   GCC:DEBUG_GCC5_AARCH64_DTC_FLAGS = -H epapr
+##   GCC:DEBUG_GCC5_AARCH64_ASM_FLAGS = -target aarch64-unknown-none -march=armv8.2-a
+##   GCC:DEBUG_GCC5_AARCH64_CARGOMAKE_FLAGS = --cwd /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu -e CARGO_TARGET_DIR=$(DEBUG_DIR) -p development -e TARGET_TRIPLE=$(TARGET_TRIPLE)
+##   GCC:DEBUG_GCC5_AARCH64_ASLPP_FLAGS = -x c -E -include AutoGen.h
+##   GCC:DEBUG_GCC5_AARCH64_ASLCC_FLAGS = -x c -fno-lto
+##   GCC:DEBUG_GCC5_AARCH64_RUST_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_CC_FLAGS = $(PLATFORM_FLAGS) -g -Os -fshort-wchar -fno-builtin -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -include AutoGen.h -fno-common -fstack-protector -ffunction-sections -fdata-sections -DSTRING_ARRAY_NAME=$(BASE_NAME)Strings -g -Os -fshort-wchar -fno-builtin -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -include AutoGen.h -fno-common -fstack-protector -mlittle-endian -fno-short-enums -fverbose-asm -funsigned-char  -ffunction-sections -fdata-sections -Wno-address -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-pic -fno-pie -ffixed-x18 -mstack-protector-guard=global -mcmodel=small -flto -Wno-unused-but-set-variable -Wno-unused-const-variable -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -march=armv8.2-a+crypto+rcpc -Wno-error=unaligned-access -Wno-unused-const-variable -Wno-sometimes-uninitialized -D GCC -DSILICON_PLATFORM=8103
+##   GCC:DEBUG_GCC5_AARCH64_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   GCC:DEBUG_GCC5_AARCH64_ASLDLINK_FLAGS = -target aarch64-unknown-none -nostdlib -Wl,--gc-sections
+##   GCC:DEBUG_GCC5_AARCH64_GENFW_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_NASMB_FLAGS = -f bin
+##   GCC:DEBUG_GCC5_AARCH64_APP_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_DLINK2_FLAGS = -Wl,--script=$(EDK_TOOLS_PATH)/Scripts/GccBase.lds -Wl,--defsym=PECOFF_HEADER_SIZE=0x228 -Wno-error
+##   GCC:DEBUG_GCC5_AARCH64_DLINK_FLAGS = -Wl,--emit-relocs -nostdlib -Wl,--gc-sections -u $(IMAGE_ENTRY_POINT) -Wl,-e,$(IMAGE_ENTRY_POINT),-Map,$(DEST_DIR_DEBUG)/$(BASE_NAME).map -Wl,--fatal-warnings -Wl,-z,noexecstack -z common-page-size=0x20 -z common-page-size=0x1000 -flto -Os -L/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/GccLto -llto-aarch64 -Wl,-plugin-opt=-pass-through=-llto-aarch64 -Wno-lto-type-mismatch
+##   GCC:DEBUG_GCC5_AARCH64_DTCPP_FLAGS = -E -x assembler-with-cpp -imacros AutoGen.h -nostdinc -undef

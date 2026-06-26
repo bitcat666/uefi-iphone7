@@ -1,0 +1,14 @@
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort/OUTPUT/./DebugLib.obj: \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Library/BaseDebugLibSerialPort/DebugLib.c \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort/DEBUG/AutoGen.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Base.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/AArch64/ProcessorBind.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/PcdLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/DebugLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/BaseLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/PrintLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/BaseMemoryLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/SerialPortLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Uefi/UefiBaseType.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Protocol/SerialIo.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/DebugPrintErrorLevelLib.h

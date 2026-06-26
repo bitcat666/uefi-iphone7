@@ -1,0 +1,8 @@
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Library/CompilerIntrinsicsLib/AArch64
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Library/CompilerIntrinsicsLib
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/MdePkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib/DEBUG
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Test/UnitTest/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Test/Mock/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/AArch64

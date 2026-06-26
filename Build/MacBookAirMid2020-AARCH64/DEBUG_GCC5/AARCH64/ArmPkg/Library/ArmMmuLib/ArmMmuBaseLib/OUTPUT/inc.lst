@@ -1,0 +1,11 @@
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/ARM/TIANO/ArmPkg/Library/ArmMmuLib/AArch64
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/ARM/TIANO/ArmPkg/Library/ArmMmuLib
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib/DEBUG
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/ARM/TIANO/ArmPkg
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/TIANO/EmbeddedPkg
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/TIANO/EmbeddedPkg/Test/Mock/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Test/UnitTest/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Test/Mock/Include
+-I/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/AArch64

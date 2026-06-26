@@ -1,0 +1,9 @@
+/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull/OUTPUT/Hash/CryptSha512Null.obj: \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/CryptoPkg/Library/BaseCryptLibNull/Hash/CryptSha512Null.c \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/AARCH64/CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull/DEBUG/AutoGen.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Base.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/AArch64/ProcessorBind.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/CryptoPkg/Library/BaseCryptLibNull/InternalCryptLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/CryptoPkg/Include/Library/BaseCryptLib.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Uefi/UefiBaseType.h \
+  /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Include/Library/DebugLib.h

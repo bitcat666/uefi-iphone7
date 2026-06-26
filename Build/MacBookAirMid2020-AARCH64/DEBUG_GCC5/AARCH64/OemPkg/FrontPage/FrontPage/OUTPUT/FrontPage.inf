@@ -1,0 +1,520 @@
+## @file
+# Application that presents & manages the Front Page.
+#
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+[Defines]
+  INF_VERSION                = 0x00010017
+  BASE_NAME                  = FrontPage
+  FILE_GUID                  = 4042708A-0F2D-4823-AC60-0D77B3111889
+  MODULE_TYPE                = UEFI_APPLICATION
+  VERSION_STRING             = 1.0
+  ENTRY_POINT                = UefiMain
+
+[Packages.AARCH64]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+  MsCorePkg/MsCorePkg.dec
+  OemPkg/OemPkg.dec
+  DfciPkg/DfciPkg.dec
+  MsWheaPkg/MsWheaPkg.dec
+  SecurityPkg/SecurityPkg.dec
+
+[Binaries.AARCH64]
+  PE32|FrontPage.efi
+
+[PatchPcd.AARCH64]
+
+[Protocols.AARCH64]
+  ## PROTOCOL CONSUMES
+  gEfiSmbiosProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## PROTOCOL SOMETIMES_CONSUMES
+  gEfiGraphicsOutputProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gEfiHiiConfigAccessProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## PROTOCOL CONSUMES
+  gEfiFormBrowser2ProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## PROTOCOL CONSUMES
+  gEfiDevicePathProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## PROTOCOL CONSUMES
+  gEfiFirmwareVolume2ProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gMsOSKProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gMsSWMProtocolGuid
+
+  ## CONSUMES
+  ## PROTOCOL CONSUMES
+  gEfiHiiConfigRoutingProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gEfiSmmVariableProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gEfiSmmCommunicationProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gDfciSettingAccessProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gMsFrontPageAuthTokenProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gDfciAuthenticationProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gEdkiiFormBrowserEx2ProtocolGuid
+
+  ## PROTOCOL CONSUMES
+  gEfiFirmwareManagementProtocolGuid
+
+  ## CONSUMES           ## MU_CHANGE
+  # CONSUMES
+  ## PROTOCOL CONSUMES
+  gEdkiiVariablePolicyProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gPcdProtocolGuid
+
+  ## CONSUMES
+  gEfiPcdProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gGetPcdInfoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiGetPcdInfoProtocolGuid
+
+  ## UNDEFINED
+  gEfiDebugPortProtocolGuid
+
+  ## SOMETIMES_PRODUCES
+  gEfiDriverBindingProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  gEfiSimpleTextOutProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  gEfiHiiFontProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  gEfiSimpleFileSystemProtocolGuid
+
+  ## SOMETIMES_CONSUMES # Consumes if gEfiGraphicsOutputProtocolGuid uninstalled
+  gEfiUgaDrawProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+  gEfiComponentNameProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+  gEfiComponentName2ProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+  gEfiDriverConfigurationProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+  gEfiDriverConfiguration2ProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+  gEfiDriverDiagnosticsProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+  gEfiDriverDiagnostics2ProtocolGuid
+
+  ## CONSUMES
+  gEfiHiiStringProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiHiiImageProtocolGuid
+
+  ## CONSUMES
+  gEfiHiiDatabaseProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## CONSUMES
+  gEfiLoadedImageProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  ## SOMETIMES_CONSUMES
+  gEfiLoadFileProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiLoadFile2ProtocolGuid
+
+  gMsUiThemeProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiUnicodeCollation2ProtocolGuid
+
+  ## CONSUMES
+  gEfiStatusCodeRuntimeProtocolGuid
+
+  ## CONSUMES
+  gEfiPciRootBridgeIoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiPciIoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiSimpleNetworkProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiSimpleTextInProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiBlockIoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiBootLogoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiSimpleTextInputExProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiUsbIoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiNvmExpressPassThruProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiDiskInfoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiDriverHealthProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiRamDiskProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEfiDeferredImageLoadProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEdkiiPlatformBootManagerProtocolGuid
+
+  gMuPKCS5PasswordHashProtocolGuid
+
+  gEfiRngProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+  gEdkiiBootLogo2ProtocolGuid
+
+  # SOMETIMES_CONSUMES
+  gEfiRealTimeClockArchProtocolGuid
+
+  ## BY_START
+  gEfiHash2ProtocolGuid
+
+  ## BY_START
+  gEfiHash2ServiceBindingProtocolGuid
+
+
+[Ppis.AARCH64]
+
+[Guids.AARCH64]
+  ## SOMETIMES_CONSUMES  ## Variable
+  ## CONSUMES            ## Variable:L"SetupMode"
+  ## PRODUCES            ## Variable:L"SetupMode"
+  ## CONSUMES            ## Variable:L"SecureBoot"
+  ## PRODUCES            ## Variable:L"SecureBoot"
+  ## PRODUCES            ## Variable:L"PK"
+  ## PRODUCES            ## Variable:L"KEK"
+  ## CONSUMES            ## Variable:L"PKDefault"
+  ## CONSUMES            ## Variable:L"KEKDefault"
+  ## CONSUMES            ## Variable:L"dbDefault"
+  ## CONSUMES            ## Variable:L"dbxDefault"
+  ## CONSUMES            ## Variable:L"dbtDefault"
+  # CONSUMES
+  ## SOMETIMES_PRODUCES ## Variable:L"BootNext" (The number of next boot option)
+  gEfiGlobalVariableGuid
+
+  ## SOMETIMES_CONSUMES  ## Variable:L"DB"
+  ## SOMETIMES_CONSUMES  ## Variable:L"DBX"
+  ## SOMETIMES_CONSUMES  ## Variable:L"DBT"
+  # CONSUMES
+  ## CONSUMES
+  gEfiImageSecurityDatabaseGuid
+
+  ## CONSUMES ## GUID (Extended IFR Guid Opcode)
+  gEfiIfrTianoGuid
+
+  ## CONSUMES
+  ## CONSUMES
+  gEfiCertPkcs7Guid
+
+  ## CONSUMES
+  gMsEventMasterFrameNotifyGroupGuid
+
+  ## CONSUMES ## Used to signal a specific reset type, in case anyone wants to handle it.
+  gFrontPageResetGuid
+
+  ## CONSUMES
+  gDfciMenuFormsetGuid
+
+  ## CONSUMES
+  gHwhMenuFormsetGuid
+
+  ## CONSUMES
+  gMuVarPolicyDxePhaseGuid
+
+  gMsGraphicsPkgTokenSpaceGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiVTUTF8Guid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiVT100Guid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiVT100PlusGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiPcAnsiGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiUartDevicePathGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiSasDevicePathGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiVirtualDiskGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiVirtualCdGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiPersistentVirtualDiskGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+  gEfiPersistentVirtualCdGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+  # MU_CHANGE
+  gEfiEventReadyToBootGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+  gEfiEventAfterReadyToBootGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+  gEfiEventLegacyBootGuid
+
+  ## SOMETIMES_CONSUMES  ## SystemTable
+  gEfiAcpi20TableGuid
+
+  ## SOMETIMES_CONSUMES  ## SystemTable
+  gEfiAcpi10TableGuid
+
+  ## CONSUMES  ## SystemTable
+  gEfiHobListGuid
+
+  ## SOMETIMES_CONSUMES ## UNDEFINED
+  gEfiFileInfoGuid
+
+  ## SOMETIMES_CONSUMES ## UNDEFINED
+  gEfiStatusCodeSpecificDataGuid
+
+  ## SOMETIMES_CONSUMES ## UNDEFINED
+  gEfiStatusCodeDataTypeDebugGuid
+
+  ## CONSUMES  ## SystemTable
+  gEfiDxeServicesTableGuid
+
+  ## SOMETIMES_CONSUMES   ## UNDEFINED # Locate protocol
+  gEdkiiPerformanceMeasurementProtocolGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEdkiiIfrBitVarstoreGuid
+
+  ## CONSUMES            ## Variable:L"SecureBootEnable"
+  ## PRODUCES            ## Variable:L"SecureBootEnable"
+  gEfiSecureBootEnableDisableGuid
+
+  ## CONSUMES            ## Variable:L"CustomMode"
+  ## PRODUCES            ## Variable:L"CustomMode"
+  gEfiCustomModeEnableGuid
+
+  ## CONSUMES
+  gEfiCertX509Guid
+
+  ## SOMETIMES_CONSUMES ## SystemTable (The identifier of memory type information type in system table)
+  ## SOMETIMES_CONSUMES ## HOB (The hob holding memory type information)
+  ## SOMETIMES_CONSUMES ## Variable:L"MemoryTypeInformation."
+  ## SOMETIMES_PRODUCES ## Variable:L"MemoryTypeInformation."
+  gEfiMemoryTypeInformationGuid
+
+  ## SOMETIMES_CONSUMES ## HOB # MU_CHANGE
+  gEfiMemoryTypeMinimumAllocationGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEdkiiStatusCodeDataTypeVariableGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEfiDiskInfoAhciInterfaceGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEfiDiskInfoIdeInterfaceGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEfiDiskInfoScsiInterfaceGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEfiDiskInfoSdMmcInterfaceGuid
+
+  ## SOMETIMES_CONSUMES ## GUID
+  gEfiDiskInfoUfsInterfaceGuid
+
+  ## PRODUCES   ##MSCHANGE
+  gEfiEventPreReadyToBootGuid
+
+  ## PRODUCES   ##MSCHANGE
+  gEfiEventPostReadyToBootGuid
+
+  gEfiRngAlgorithmSp80090Ctr256Guid
+
+  gEfiRngAlgorithmSp80090Hmac256Guid
+
+  gEfiRngAlgorithmSp80090Hash256Guid
+
+  ## CONSUMES
+  gLogoDisplayedEventGroup
+
+  gOemBootNVVarGuid
+
+  # CONSUMES
+  gEfiHashAlgorithmSha256Guid
+
+
+[PcdEx.AARCH64]
+  gMsGraphicsPkgTokenSpaceGuid.PcdCurrentPointerState
+
+  gMsGraphicsPkgTokenSpaceGuid.PcdPostBackgroundColoringSkipCount
+
+
+[LibraryClasses.AARCH64]
+## @LIB_INSTANCES
+#  MdePkg/Library/BaseMemoryLibOptDxe/BaseMemoryLibOptDxe.inf
+#  MdePkg/Library/DxePcdLib/DxePcdLib.inf
+#  MdePkg/Library/BaseLib/BaseLib.inf
+#  MdePkg/Library/RegisterFilterLibNull/RegisterFilterLibNull.inf
+#  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsicArmVirt.inf
+#  ArmPkg/Library/ArmLib/ArmBaseLib.inf
+#  MdePkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf
+#  MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
+#  AppleSiliconPkg/Library/AppleUartSerialPortLib/AppleUartSerialPortLib.inf
+#  MdePkg/Library/BasePrintLib/BasePrintLib.inf
+#  MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
+#  MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf
+#  MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
+#  MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+#  MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+#  MdePkg/Library/UefiLib/UefiLib.inf
+#  MdePkg/Library/DxeHobLib/DxeHobLib.inf
+#  MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
+#  MsGraphicsPkg/Library/FrameBufferMemDrawLib/FrameBufferMemDrawLibDxe.inf
+#  MdePkg/Library/FltUsedLib/FltUsedLib.inf
+#  MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib.inf
+#  MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
+#  MdeModulePkg/Library/DeviceStateLib/DeviceStateLib.inf
+#  MsGraphicsPkg/Library/BaseUiRectangleLib/BaseUiRectangleLib.inf
+#  MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
+#  MsCorePkg/Library/MathLib/MathLib.inf
+#  MsGraphicsPkg/Library/MsUiThemeLib/Dxe/MsUiThemeLib.inf
+#  SecurityPkg/Library/PlatformPKProtectionLibVarPolicy/PlatformPKProtectionLibVarPolicy.inf
+#  MdePkg/Library/StackCheckLibNull/StackCheckLibNull.inf
+#  MdeModulePkg/Library/MemoryTypeInformationChangeLibNull/MemoryTypeInformationChangeLibNull.inf
+#  MdeModulePkg/Library/VariablePolicyHelperLib/VariablePolicyHelperLib.inf
+#  MdeModulePkg/Library/UefiSortLib/UefiSortLib.inf
+#  MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
+#  MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf
+#  MdePkg/Library/BasePeCoffGetEntryPointLib/BasePeCoffGetEntryPointLib.inf
+#  MdeModulePkg/Library/DxePerformanceLib/DxePerformanceLib.inf
+#  MdeModulePkg/Library/UefiHiiLib/UefiHiiLib.inf
+#  CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull.inf
+#  MdeModulePkg/Library/DxeResetSystemLib/DxeResetSystemLib.inf
+#  MsGraphicsPkg/Library/ColorBarDisplayDeviceStateLib/ColorBarDisplayDeviceStateLib.inf
+#  OemPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
+#  MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
+#  MsGraphicsPkg/Library/MsColorTableLib/MsColorTableLib.inf
+#  MsGraphicsPkg/Library/SimpleUIToolKit/SimpleUIToolKit.inf
+#  MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
+#  SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
+#  MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint.inf
+#  MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
+#  OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
+#  MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
+#  MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+#  OemPkg/Library/MsNVBootReasonLib/MsNVBootReasonLib.inf
+#  PcBdsPkg/Library/GraphicsConsoleHelperLib/GraphicsConsoleHelper.inf
+#  MsGraphicsPkg/Library/SwmDialogsLib/SwmDialogs.inf
+#  MsCorePkg/Library/MuSecureBootKeySelectorLib/MuSecureBootKeySelectorLib.inf
+
+[Depex.AARCH64]
+#  (TRUE) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (TRUE) AND (gEfiHiiStringProtocolGuid        AND gEfiHiiDatabaseProtocolGuid      AND gEfiHiiConfigRoutingProtocolGuid) AND (gEfiHiiStringProtocolGuid        AND gEfiHiiDatabaseProtocolGuid      AND gEfiHiiConfigRoutingProtocolGuid) AND (gEfiHiiStringProtocolGuid        AND gEfiHiiDatabaseProtocolGuid      AND gEfiHiiConfigRoutingProtocolGuid) AND (gEfiHiiStringProtocolGuid        AND gEfiHiiDatabaseProtocolGuid      AND gEfiHiiConfigRoutingProtocolGuid) AND (gMsUiThemeProtocolGuid) AND (gEfiResetArchProtocolGuid) AND (TRUE) AND () AND (gEdkiiVariablePolicyProtocolGuid)
+
+
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC AARCH64
+#
+#gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultLangDeprecate
+
+[BuildOptions.AARCH64]
+## @AsBuilt
+##   GCC:DEBUG_GCC5_AARCH64_PLATFORM_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_DLINK_FLAGS = -Wl,--emit-relocs -nostdlib -Wl,--gc-sections -u $(IMAGE_ENTRY_POINT) -Wl,-e,$(IMAGE_ENTRY_POINT),-Map,$(DEST_DIR_DEBUG)/$(BASE_NAME).map -Wl,--fatal-warnings -Wl,-z,noexecstack -z common-page-size=0x20 -z common-page-size=0x1000 -flto -Os -L/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/GccLto -llto-aarch64 -Wl,-plugin-opt=-pass-through=-llto-aarch64 -Wno-lto-type-mismatch
+##   GCC:DEBUG_GCC5_AARCH64_DEPS_FLAGS = -MMD -MF $@.deps
+##   GCC:DEBUG_GCC5_AARCH64_VFRPP_FLAGS = $(ARCHCC_FLAGS) $(PLATFORM_FLAGS) -x c -E -P -DVFRCOMPILE --include $(MODULE_NAME)StrDefs.h
+##   GCC:DEBUG_GCC5_AARCH64_NASMB_FLAGS = -f bin
+##   GCC:DEBUG_GCC5_AARCH64_ASM_FLAGS = -target aarch64-unknown-none -march=armv8.2-a
+##   GCC:DEBUG_GCC5_AARCH64_CC_FLAGS = $(PLATFORM_FLAGS) -g -Os -fshort-wchar -fno-builtin -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -include AutoGen.h -fno-common -fstack-protector -ffunction-sections -fdata-sections -DSTRING_ARRAY_NAME=$(BASE_NAME)Strings -g -Os -fshort-wchar -fno-builtin -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -include AutoGen.h -fno-common -fstack-protector -mlittle-endian -fno-short-enums -fverbose-asm -funsigned-char  -ffunction-sections -fdata-sections -Wno-address -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-pic -fno-pie -ffixed-x18 -mstack-protector-guard=global -mcmodel=small -flto -Wno-unused-but-set-variable -Wno-unused-const-variable -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -march=armv8.2-a+crypto+rcpc -Wno-error=unaligned-access -Wno-unused-const-variable -Wno-sometimes-uninitialized -D GCC -DSILICON_PLATFORM=8103
+##   GCC:DEBUG_GCC5_AARCH64_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   GCC:DEBUG_GCC5_AARCH64_GENFW_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_OPTROM_FLAGS = -e
+##   GCC:DEBUG_GCC5_AARCH64_DTCPP_FLAGS = -E -x assembler-with-cpp -imacros AutoGen.h -nostdinc -undef
+##   GCC:DEBUG_GCC5_AARCH64_OBJCOPY_FLAGS = objcopy not needed for
+##   GCC:DEBUG_GCC5_AARCH64_RC_FLAGS = -I binary -O elf64-littleaarch64 -B aarch64 --rename-section .data=.hii --add-section .note.gnu.property=/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/GnuNoteBti.bin --set-section-flags .note.gnu.property=alloc,readonly
+##   GCC:DEBUG_GCC5_AARCH64_CARGOMAKE_FLAGS = --cwd /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu -e CARGO_TARGET_DIR=$(DEBUG_DIR) -p development -e TARGET_TRIPLE=$(TARGET_TRIPLE)
+##   GCC:DEBUG_GCC5_AARCH64_ASL_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_SLINK_FLAGS = crs
+##   GCC:DEBUG_GCC5_AARCH64_APP_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_ASLPP_FLAGS = -x c -E -include AutoGen.h
+##   GCC:DEBUG_GCC5_AARCH64_ASLCC_FLAGS = -x c -fno-lto
+##   GCC:DEBUG_GCC5_AARCH64_VFR_FLAGS = -l -n
+##   GCC:DEBUG_GCC5_AARCH64_RUST_FLAGS = 
+##   GCC:DEBUG_GCC5_AARCH64_ASLDLINK_FLAGS = -target aarch64-unknown-none -nostdlib -Wl,--gc-sections
+##   GCC:DEBUG_GCC5_AARCH64_DLINK2_FLAGS = -Wl,--script=$(EDK_TOOLS_PATH)/Scripts/GccBase.lds -Wl,--defsym=PECOFF_HEADER_SIZE=0x228 -Wno-error
+##   GCC:DEBUG_GCC5_AARCH64_DTC_FLAGS = -H epapr
+##   GCC:DEBUG_GCC5_AARCH64_ASMLINK_FLAGS = /nologo /tiny
+##   GCC:DEBUG_GCC5_AARCH64_PP_FLAGS = -target aarch64-unknown-none -E -x assembler-with-cpp

@@ -1,0 +1,10 @@
+PcdTokenNumber: 
+('PcdSKUEnableDfci', 'gDfciPkgTokenSpaceGuid') : 1
+('PcdSetupUiReducedFunction', 'gDfciPkgTokenSpaceGuid') : 2
+('PcdDeviceStateBitmask', 'gEfiMdeModulePkgTokenSpaceGuid') : 3
+('PcdNvStoreDefaultValueBuffer', 'gEfiMdeModulePkgTokenSpaceGuid') : 5
+('PcdSetNvStoreDefaultId', 'gEfiMdeModulePkgTokenSpaceGuid') : 6
+('PcdTestKeyUsed', 'gEfiMdeModulePkgTokenSpaceGuid') : 4
+('PcdVpdBaseAddress64', 'gEfiMdeModulePkgTokenSpaceGuid') : 7
+('PcdCurrentPointerState', 'gMsGraphicsPkgTokenSpaceGuid') : 8
+('PcdPostBackgroundColoringSkipCount', 'gMsGraphicsPkgTokenSpaceGuid') : 9

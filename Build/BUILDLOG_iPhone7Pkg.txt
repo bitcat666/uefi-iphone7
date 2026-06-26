@@ -1,0 +1,342 @@
+INFO - Log Started: Tuesday, June 23, 2026 06:25PM
+SECTION - Init Self Describing Environment
+DEBUG - --- self_describing_environment.__init__()
+DEBUG - Skipped directories specified = ()
+DEBUG - --- self_describing_environment.load_workspace()
+DEBUG - Loading workspace: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu
+DEBUG -   Including scopes: iPhone7, gcc_aarch64_linux, edk2-build, global
+DEBUG - --- self_describing_environment._gather_env_files()
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/edk2_core_path_env.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/basetools_calling_path_env.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/basetools_path_env.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Source/Python/basetool_tiano_python_path_env.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Scripts/basetools_scripts_bin_path_env.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/CryptoPkg/Binaries/BaseCryptoDriver_ext_dep.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/basetoolsbin_ext_dep.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/nasm_ext_dep.yaml to the environment with scope edk2-build
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/DebugMacroCheck/BuildPlugin/DebugMacroCheck_plug_in.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/FdSizeReport/FdSizeReportGenerator_plug_in.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/ClangPdbToolChain/ClangPdbToolChain_plug_in.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/OverrideValidation/OverrideValidation_plug_in.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/BuildToolsReport/BuildToolsReportGenerator_plug_in.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/FlattenPdbs/FlattenPdbs_plug_in.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/BmpCheck/BmpCheck_plug_in.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/WindowsCapsuleSupportHelper/WindowsCapsuleSupportHelper_plug_in.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper_plug_in.json to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/RustPackageHelper/RustPackageHelper_plug_in.yaml to the environment with scope global
+DEBUG - Adding descriptor /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/ImageValidation/ImageValidation_plug_in.yaml to the environment with scope global
+DEBUG - --- self_describing_environment.update_simple_paths()
+DEBUG - --- self_describing_environment.update_extdep_paths()
+DEBUG - Verify 'mu_nasm' returning 'False'.
+DEBUG - Verify 'Mu-Basetools' returning 'False'.
+DEBUG - --- self_describing_environment.report_extdep_version()
+DEBUG - Verify 'mu_nasm' returning 'False'.
+DEBUG - Setting up version aggregator
+DEBUG - Verify 'Mu-Basetools' returning 'False'.
+SECTION - Loading Plugins
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/DebugMacroCheck/BuildPlugin/DebugMacroCheckBuildPlugin.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/FdSizeReport/FdSizeReportGenerator.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/ClangPdbToolChain/ClangPdbToolChain.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/OverrideValidation/OverrideValidation.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/BuildToolsReport/BuildToolsReportGenerator.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/FlattenPdbs/FlattenPdbs.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/BmpCheck/BmpCheckPlugin.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/WindowsCapsuleSupportHelper/WindowsCapsuleSupportHelper.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/RustPackageHelper/RustPackageHelper.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/ImageValidation/ImageValidation.py
+INFO - PLUGIN DESCRIPTOR:Windows Capsule Support Helper Functions
+DEBUG - Helper Plugin Register: Windows Capsule Support Helper Functions
+INFO - PLUGIN DESCRIPTOR:Edk2Tool Helper Functions
+DEBUG - Helper Plugin Register: Edk2Tool Helper Functions
+INFO - PLUGIN DESCRIPTOR:Rust Package Helper
+DEBUG - Helper Plugin Register: Rust Package Helper
+SECTION - Start Invocable Tool
+INFO - Running Python version: sys.version_info(major=3, minor=9, micro=6, releaselevel='final', serial=0)
+INFO - xlsxwriter version: 3.2.9
+INFO - urllib3 version: 2.6.3
+INFO - typing-extensions version: 4.15.0
+INFO - smmap version: 5.0.3
+INFO - semantic-version version: 2.10.0
+INFO - requests version: 2.32.5
+INFO - regex version: 2026.1.15
+INFO - pyyaml version: 6.0.3
+INFO - pycparser version: 2.23
+INFO - pyasn1 version: 0.6.3
+INFO - pyasn1-modules version: 0.4.2
+INFO - pip version: 26.0.1
+INFO - pillow version: 11.3.0
+INFO - pefile version: 2024.8.26
+INFO - openpyxl version: 3.1.5
+INFO - numpy version: 2.0.2
+INFO - joblib version: 1.5.3
+INFO - idna version: 3.18
+INFO - gitpython version: 3.1.50
+INFO - gitdb version: 4.0.12
+INFO - et-xmlfile version: 2.0.0
+INFO - edk2-pytool-library version: 0.18.2
+INFO - edk2-pytool-extensions version: 0.24.1
+INFO - cryptography version: 48.0.1
+INFO - charset-normalizer version: 3.4.7
+INFO - cffi version: 2.0.0
+INFO - certifi version: 2026.6.17
+INFO - antlr4-python3-runtime version: 4.13.2
+INFO - wheel version: 0.37.0
+INFO - six version: 1.15.0
+INFO - setuptools version: 58.0.4
+INFO - macholib version: 1.15.2
+INFO - future version: 0.18.2
+INFO - altgraph version: 0.17.2
+SECTION - Loading Plugins
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/DebugMacroCheck/BuildPlugin/DebugMacroCheckBuildPlugin.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/FdSizeReport/FdSizeReportGenerator.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/ClangPdbToolChain/ClangPdbToolChain.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/OverrideValidation/OverrideValidation.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/BuildToolsReport/BuildToolsReportGenerator.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/FlattenPdbs/FlattenPdbs.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/BmpCheck/BmpCheckPlugin.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/WindowsCapsuleSupportHelper/WindowsCapsuleSupportHelper.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/RustPackageHelper/RustPackageHelper.py
+DEBUG - Loading Plugin from /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/ImageValidation/ImageValidation.py
+INFO - PLUGIN DESCRIPTOR:Windows Capsule Support Helper Functions
+DEBUG - Helper Plugin Register: Windows Capsule Support Helper Functions
+INFO - PLUGIN DESCRIPTOR:Edk2Tool Helper Functions
+DEBUG - Helper Plugin Register: Edk2Tool Helper Functions
+INFO - PLUGIN DESCRIPTOR:Rust Package Helper
+DEBUG - Helper Plugin Register: Rust Package Helper
+SECTION - Kicking off build
+PROGRESS - Start time: 2026-06-23 18:25:14.416694
+DEBUG - Logging all Registered Helper Functions:
+DEBUG -   Function PackageWindowsCapsuleFiles registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/WindowsCapsuleSupportHelper/WindowsCapsuleSupportHelper.py
+DEBUG -   Function PackageMsFmpHeader registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper.py
+DEBUG -   Function PackageFmpImageAuth registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper.py
+DEBUG -   Function PackageFmpCapsuleHeader registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper.py
+DEBUG -   Function PackageCapsuleHeader registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Plugin/Edk2ToolHelper/Edk2ToolHelper.py
+DEBUG -   Function RustPackage registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/RustPackageHelper/RustPackageHelper.py
+DEBUG -   Function RustWorkspace registered from file /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/.pytool/Plugin/RustPackageHelper/RustPackageHelper.py
+DEBUG - Finished logging 7 functions
+PROGRESS - Setting up the Environment
+DEBUG - PlatformBuilder SetPlatformEnv
+DEBUG - Can't set value [CLANGPDB] as it isn't overrideable. Previous comment From CmdLine
+DEBUG - Conf version: 0.0
+DEBUG - Template Version: 0.0
+DEBUG - Conf version: 3.23
+DEBUG - Template Version: 3.23
+DEBUG - Conf version: 3.0
+DEBUG - Template Version: 3.0
+DEBUG - Parse Target.txt file
+DEBUG - Can't set value [Platform/iPhone7Pkg/iPhone7.dsc] as it isn't overrideable. Previous comment From CmdLine
+DEBUG - Can't set value [AARCH64] as it isn't overrideable. Previous comment From CmdLine
+DEBUG - Can't set value [GCC5] as it isn't overrideable. Previous comment From CmdLine
+DEBUG - Parse tools_def.txt file
+DEBUG - Parse Active Platform DSC file: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc
+DEBUG - Getting all build keys for build type DEBUG
+DEBUG - Building Library Override Dictionary for Component: Silicon/Apple/AppleSiliconPkg/PrePi/PrePi.inf
+DEBUG -   Library Section Override: SerialPortLib|Silicon/Apple/AppleSiliconPkg/Library/AppleUartSerialPortLib/AppleUartSerialPortLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Core/Dxe/DxeMain.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+DEBUG -   Library Section Override: DevicePathLib|MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+DEBUG -   Library Section Override: DebugAgentLib|mu_feature_debugger/DebuggerFeaturePkg/Library/DebugAgent/DebugAgentDxe.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+DEBUG -   Library Section Override: PcdLib|MU_BASECORE/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+DEBUG - Building Library Override Dictionary for Component: Common/TIANO/EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
+DEBUG -   Library Section Override: RealTimeClockLib|Silicon/Apple/AppleSiliconPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+DEBUG -   Library Section Override: DevicePathLib|MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+DEBUG -   Library Section Override: PcdLib|MU_BASECORE/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+DEBUG - Building Library Override Dictionary for Component: Common/MU_DFCI/DfciPkg/SettingsManager/SettingsManagerDxe.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciPasswordProvider/DfciPasswordProvider.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciSettingsLib/DfciSettingsLib.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciVirtualizationSettings/DfciVirtualizationSettings.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciWpbtSettingLib/DfciWpbtSetting.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciAssetTagSettingLib/DfciAssetTagSetting.inf
+DEBUG -   Library Section Override: DfciSettingPermissionLib|Common/MU_DFCI/DfciPkg/Library/DfciSettingPermissionLib/DfciSettingPermissionLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/ShellPkg/Application/Shell/Shell.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellNetwork2CommandsLib/UefiShellNetwork2CommandsLib.inf
+DEBUG - Parse Active Flash Definition (FDF) file
+DEBUG - Getting all build keys for build type DEBUG
+PROGRESS - Running Pre Build
+PROGRESS - Checking DEBUG Macros
+INFO - Checking Debug Macros in directory: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg
+
+INFO - Gathering the overall file list. This might take awhile.
+
+INFO - Getting git ignore files...
+INFO - Ignoring git ignore files...
+INFO -   0 files are ignored by git
+INFO -   0 files after removing ignored files
+INFO - 
+Starting macro check on 0 files.
+DEBUG - Plugin Success: Debug Macro Check Plugin
+DEBUG - Plugin Success: Fd Size Report Generator
+DEBUG - Plugin Success: Clang Pdb Tool Chain Support
+INFO - ---------------------------------------------------------------------
+INFO - --------------Override/Deprecation Validation Starting---------------
+INFO - ---------------------------------------------------------------------
+DEBUG - Parse Active Platform DSC file
+DEBUG - Getting all build keys for build type DEBUG
+DEBUG - Building Library Override Dictionary for Component: Silicon/Apple/AppleSiliconPkg/PrePi/PrePi.inf
+DEBUG -   Library Section Override: SerialPortLib|Silicon/Apple/AppleSiliconPkg/Library/AppleUartSerialPortLib/AppleUartSerialPortLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Core/Dxe/DxeMain.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+DEBUG -   Library Section Override: DevicePathLib|MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+DEBUG -   Library Section Override: DebugAgentLib|mu_feature_debugger/DebuggerFeaturePkg/Library/DebugAgent/DebugAgentDxe.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+DEBUG -   Library Section Override: PcdLib|MU_BASECORE/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+DEBUG - Building Library Override Dictionary for Component: Common/TIANO/EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
+DEBUG -   Library Section Override: RealTimeClockLib|Silicon/Apple/AppleSiliconPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+DEBUG -   Library Section Override: DevicePathLib|MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+DEBUG -   Library Section Override: PcdLib|MU_BASECORE/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+DEBUG - Building Library Override Dictionary for Component: Common/MU_DFCI/DfciPkg/SettingsManager/SettingsManagerDxe.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciPasswordProvider/DfciPasswordProvider.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciSettingsLib/DfciSettingsLib.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciVirtualizationSettings/DfciVirtualizationSettings.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciWpbtSettingLib/DfciWpbtSetting.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciAssetTagSettingLib/DfciAssetTagSetting.inf
+DEBUG -   Library Section Override: DfciSettingPermissionLib|Common/MU_DFCI/DfciPkg/Library/DfciSettingPermissionLib/DfciSettingPermissionLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/ShellPkg/Application/Shell/Shell.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellNetwork2CommandsLib/UefiShellNetwork2CommandsLib.inf
+CRITICAL - Override Log file at /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/iPhone7-AARCH64/DEBUG_GCC5/OVERRIDELOG.TXT
+DEBUG - Override/Deprecation validation all in sync
+INFO - ----------------------------------------------------------------------
+INFO - --------------Override/Deprecation Validation Finished----------------
+INFO - -------------- Running Time (mm:ss): 00:00 -------------
+INFO - ----------------------------------------------------------------------
+DEBUG - Plugin Success: Override Validation and Deprecation Warning Pre Build Plugin
+INFO - Writing BuildToolsReports to /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/iPhone7-AARCH64/DEBUG_GCC5/BUILD_TOOLS_REPORT
+DEBUG - Plugin Success: Build Tools Report Generator
+DEBUG - Plugin Success: Flatten PDBs UEFI Build Plugin
+DEBUG - Getting all build keys for build type DEBUG
+DEBUG - Building Library Override Dictionary for Component: Silicon/Apple/AppleSiliconPkg/PrePi/PrePi.inf
+DEBUG -   Library Section Override: SerialPortLib|Silicon/Apple/AppleSiliconPkg/Library/AppleUartSerialPortLib/AppleUartSerialPortLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Core/Dxe/DxeMain.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+DEBUG -   Library Section Override: DevicePathLib|MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+DEBUG -   Library Section Override: DebugAgentLib|mu_feature_debugger/DebuggerFeaturePkg/Library/DebugAgent/DebugAgentDxe.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+DEBUG -   Library Section Override: PcdLib|MU_BASECORE/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+DEBUG - Building Library Override Dictionary for Component: Common/TIANO/EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
+DEBUG -   Library Section Override: RealTimeClockLib|Silicon/Apple/AppleSiliconPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+DEBUG -   Library Section Override: DevicePathLib|MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+DEBUG -   Library Section Override: PcdLib|MU_BASECORE/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+DEBUG - Building Library Override Dictionary for Component: Common/MU_DFCI/DfciPkg/SettingsManager/SettingsManagerDxe.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciPasswordProvider/DfciPasswordProvider.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciSettingsLib/DfciSettingsLib.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciVirtualizationSettings/DfciVirtualizationSettings.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciWpbtSettingLib/DfciWpbtSetting.inf
+DEBUG -   Library Section Override: NULL|Common/MU_DFCI/DfciPkg/Library/DfciAssetTagSettingLib/DfciAssetTagSetting.inf
+DEBUG -   Library Section Override: DfciSettingPermissionLib|Common/MU_DFCI/DfciPkg/Library/DfciSettingPermissionLib/DfciSettingPermissionLib.inf
+DEBUG - Building Library Override Dictionary for Component: MU_BASECORE/ShellPkg/Application/Shell/Shell.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
+DEBUG -   Library Section Override: NULL|MU_BASECORE/ShellPkg/Library/UefiShellNetwork2CommandsLib/UefiShellNetwork2CommandsLib.inf
+DEBUG - Silicon/Apple/AppleSiliconPkg/Include/Resources/BootLogo.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/Apple/AppleSiliconPkg/Include/Resources/BootLogo.bmp
+DEBUG - Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/FrontpageLogo.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/FrontpageLogo.bmp
+DEBUG - Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/LBAT.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/LBAT.bmp
+DEBUG - Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/THOT.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/THOT.bmp
+DEBUG - Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/VolumeUp.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/VolumeUp.bmp
+DEBUG - Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/FirmwareSettings.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/FirmwareSettings.bmp
+DEBUG - Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/NoBoot.bmp
+DEBUG - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE/OemPkg/FrontPage/Resources/NoBoot.bmp
+DEBUG - do_pre_build function took 52.049 ms
+DEBUG - Plugin Success: Bmp Image Encoding Check
+DEBUG - Plugin Success: PECOFF Image Validation Plugin
+PROGRESS - Running Build DEBUG
+DEBUG - Getting all build keys for build type DEBUG
+DEBUG - The edk2 build command is build
+DEBUG - Edk2 build parameters are -p iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64 -y /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/iPhone7-AARCH64/DEBUG_GCC5/BUILD_REPORT.TXT -Y PCD -Y DEPEX -Y FLASH -Y BUILD_FLAGS -Y LIBRARY -Y FIXED_ADDRESS -Y HASH -D SHARED_CRYPTO_PATH=/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/CryptoPkg/Binaries/edk2-basecrypto-driver-bin_extdep -D SHIP_MODE=FALSE
+INFO - Cmd to run is: build -p iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64 -y /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/iPhone7-AARCH64/DEBUG_GCC5/BUILD_REPORT.TXT -Y PCD -Y DEPEX -Y FLASH -Y BUILD_FLAGS -Y LIBRARY -Y FIXED_ADDRESS -Y HASH -D SHARED_CRYPTO_PATH=/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/CryptoPkg/Binaries/edk2-basecrypto-driver-bin_extdep -D SHIP_MODE=FALSE
+INFO - ------------------------------------------------
+INFO - --------------Cmd Output Starting---------------
+INFO - ------------------------------------------------
+INFO - Build environment: macOS-13.5.1-x86_64-i386-64bit
+INFO - Build start time: 18:25:14, Jun.23 2026
+INFO - 
+INFO - WORKSPACE        = /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu
+INFO - PACKAGES_PATH    = /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/TIANO:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_OEM_SAMPLE:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/ARM/TIANO:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/Apple:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU_DFCI:/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/mu_feature_debugger
+INFO - EDK_TOOLS_PATH   = /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools
+INFO - EDK_TOOLS_BIN    = /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/BaseTools/Bin/Mu-Basetools_extdep
+INFO - CONF_PATH        = /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Conf
+INFO - PYTHON_COMMAND   = /Library/Developer/CommandLineTools/usr/bin/python3
+INFO - 
+INFO - 
+INFO - Processing meta-data .
+INFO - Architecture(s)  = AARCH64
+INFO - Build target     = DEBUG
+INFO - Toolchain        = GCC5
+INFO - 
+INFO - Active Platform          = /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc
+INFO - build...
+INFO - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc(...): warning: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/ARM/TIANO/ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf does not support LIBRARY_CLASS HwResetSystemLib
+INFO - build...
+INFO - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc(...): warning: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf does not support LIBRARY_CLASS BaseSynchronizationLib
+INFO - build...
+INFO - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc(...): warning: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf does not support LIBRARY_CLASS UefiDevicePathLib
+INFO - build...
+INFO - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc(...): warning: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/MU_BASECORE/MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf does not support LIBRARY_CLASS LzmaDecompressLib
+INFO - build...
+INFO - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc(...): warning: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Silicon/ARM/TIANO/ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf does not support LIBRARY_CLASS HwResetSystemLib
+INFO - build...
+INFO - /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Platform/iPhone7Pkg/iPhone7.dsc(...): warning: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Common/MU/MsWheaPkg/Library/GenericSectionParserLib/GenericSectionParserLib.inf does not support LIBRARY_CLASS GenericSectionParserLib
+INFO - .
+INFO - 
+INFO - build.py...
+INFO -  : error 0001: File open failure
+INFO - 	build_rule.txt
+INFO - 
+INFO - 
+INFO - - Failed -
+INFO - Build end time: 18:25:16, Jun.23 2026
+INFO - Build total time: 00:00:02
+INFO - 
+INFO - ------------------------------------------------
+INFO - --------------Cmd Output Finished---------------
+INFO - --------- Running Time (mm:ss): 00:02 ----------
+INFO - ----------- Return Code: 0x00000001 ------------
+INFO - ------------------------------------------------
+ERROR - Compiler #0001 from : File open failure
+CRITICAL - Build failed
+PROGRESS - End time: 2026-06-23 18:25:16.760413	 Total time Elapsed: 0:00:02
+SECTION - Log file is located at: /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/BUILDLOG_iPhone7Pkg.txt
+SECTION - Summary
+ERROR - Error

@@ -1,0 +1,1 @@
+GenSec -s EFI_SECTION_RAW -o /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/FV/Ffs/af8f0389-6ba2-47d3-9e55-80b3dd9b8a98HwhMenu/HwhMenuOffset.raw /Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5/FV/Ffs/af8f0389-6ba2-47d3-9e55-80b3dd9b8a98HwhMenu/HwhMenu.offset

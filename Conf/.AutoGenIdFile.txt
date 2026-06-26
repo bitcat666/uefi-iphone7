@@ -1,0 +1,3 @@
+Arch=AARCH64
+BuildDir=/Users/macbookpro/Desktop/hermes的工作室/apple_silicon_platforms_mu/Build/MacBookAirMid2020-AARCH64/DEBUG_GCC5
+PlatformGuid=482c40bb-f36c-4c25-bc04-2c05e75542ef

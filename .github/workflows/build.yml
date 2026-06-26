@@ -5,6 +5,8 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-24.04-arm
+    env:
+      GCC5_AARCH64_PREFIX: aarch64-linux-gnu-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,7 +24,6 @@ jobs:
 
       - name: Update & Build
         run: |
-          export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-
           stuart_update -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5
           stuart_build -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5 TARGET=DEBUG
           

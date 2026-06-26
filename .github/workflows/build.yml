@@ -5,8 +5,6 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-24.04-arm
-    env:
-      GCC5_AARCH64_PREFIX: /usr/bin/aarch64-linux-gnu-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -15,7 +13,7 @@ jobs:
       - name: Install Tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq gcc-aarch64-linux-gnu nasm
+          sudo apt-get install -y -qq nasm clang lld
           pip3 install --upgrade pip
           pip3 install -r pip-requirements.txt
 
@@ -31,15 +29,15 @@ jobs:
           sed -i 's/-Werror/-Wno-error/' Conf/tools_def.txt
           sed -i 's/^TARGET .*/TARGET = DEBUG/' Conf/target.txt
           sed -i 's/^TARGET_ARCH .*/TARGET_ARCH = AARCH64/' Conf/target.txt
-          sed -i 's/^TOOL_CHAIN_TAG .*/TOOL_CHAIN_TAG = GCC5/' Conf/target.txt
+          sed -i 's/^TOOL_CHAIN_TAG .*/TOOL_CHAIN_TAG = CLANG38/' Conf/target.txt
           echo "ACTIVE_PLATFORM = Platform/iPhone7Pkg/iPhone7.dsc" >> Conf/target.txt
 
       - name: Update & Build
         run: |
-          stuart_update -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5
-          stuart_build -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5 TARGET=DEBUG
+          stuart_update -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=CLANG38
+          stuart_build -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=CLANG38 TARGET=DEBUG
           
       - uses: actions/upload-artifact@v4
         with:
           name: iPhone7-UEFI
-          path: Build/iPhone7-AARCH64/DEBUG_GCC5/FV/
+          path: Build/iPhone7-AARCH64/DEBUG_CLANG38/FV/

@@ -28,8 +28,7 @@ jobs:
           cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
           cp MU_BASECORE/BaseTools/Conf/target.template Conf/target.txt
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
-          # Disable -Werror for newer GCC
-          sed -i 's/DEFINE GCC_ALL_CC_FLAGS/DEFINE GCC_ALL_CC_FLAGS = -Wno-error/' Conf/tools_def.txt
+          sed -i 's/-Werror/-Wno-error/' Conf/tools_def.txt
           sed -i 's/^TARGET .*/TARGET = DEBUG/' Conf/target.txt
           sed -i 's/^TARGET_ARCH .*/TARGET_ARCH = AARCH64/' Conf/target.txt
           sed -i 's/^TOOL_CHAIN_TAG .*/TOOL_CHAIN_TAG = GCC5/' Conf/target.txt

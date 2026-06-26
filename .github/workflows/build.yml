@@ -17,13 +17,16 @@ jobs:
           pip3 install --upgrade pip
           pip3 install -r pip-requirements.txt
 
-      - name: Bypass NASM dep
+      - name: Setup NASM extdep
         run: |
-          # Create dummy NASM extdep to use system nasm
-          mkdir -p $(pwd)/MU_BASECORE/BaseTools/Bin/nasm_extdep/nasm-1
-          ln -sf $(which nasm) $(pwd)/MU_BASECORE/BaseTools/Bin/nasm_extdep/nasm-1/nasm
-          # Also set PATH
-          echo "$(pwd)/MU_BASECORE/BaseTools/Bin/nasm_extdep/nasm-1" >> $GITHUB_PATH
+          D=$(pwd)/MU_BASECORE/BaseTools/Bin/nasm_extdep/nasm-1
+          mkdir -p $D
+          ln -sf $(which nasm) $D/nasm
+          chmod +x $D/nasm
+          cat > $D/extdep_version.yaml << 'VEOF'
+          version: 20016.1.1
+          VEOF
+          echo "NASM extdep ready"
 
       - name: Update Dependencies
         run: |

@@ -22,13 +22,14 @@ jobs:
       - name: Remove NASM NuGet dep
         run: rm -f MU_BASECORE/BaseTools/Bin/nasm_ext_dep.yaml
 
-      - name: Generate build_rule.txt
+      - name: Generate Conf files
         run: |
           mkdir -p Conf
           cp MU_BASECORE/BaseTools/Conf/build_rule.template Conf/build_rule.txt
           cp MU_BASECORE/BaseTools/Conf/target.template Conf/target.txt
           cp MU_BASECORE/BaseTools/Conf/tools_def.template Conf/tools_def.txt
-          # Fix target.txt for our platform
+          # Disable -Werror for newer GCC
+          sed -i 's/DEFINE GCC_ALL_CC_FLAGS/DEFINE GCC_ALL_CC_FLAGS = -Wno-error/' Conf/tools_def.txt
           sed -i 's/^TARGET .*/TARGET = DEBUG/' Conf/target.txt
           sed -i 's/^TARGET_ARCH .*/TARGET_ARCH = AARCH64/' Conf/target.txt
           sed -i 's/^TOOL_CHAIN_TAG .*/TOOL_CHAIN_TAG = GCC5/' Conf/target.txt

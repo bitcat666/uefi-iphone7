@@ -17,6 +17,11 @@ jobs:
           pip3 install --upgrade pip
           pip3 install -r pip-requirements.txt
 
+      - name: Update Dependencies
+        run: |
+          export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-
+          stuart_update -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5
+
       - name: Build UEFI
         run: |
           export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-

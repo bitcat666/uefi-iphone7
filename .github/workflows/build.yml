@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04-arm
     env:
-      GCC5_AARCH64_PREFIX: /usr/bin/
+      GCC5_AARCH64_PREFIX: /usr/bin/aarch64-linux-gnu-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -15,7 +15,8 @@ jobs:
       - name: Install Tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq gcc nasm
+          sudo apt-get install -y -qq gcc-aarch64-linux-gnu nasm
+          ls -la /usr/bin/aarch64-linux-gnu-gcc
           pip3 install --upgrade pip
           pip3 install -r pip-requirements.txt
 

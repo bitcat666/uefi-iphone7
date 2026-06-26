@@ -22,11 +22,17 @@ jobs:
       - name: Remove NASM NuGet dep
         run: rm -f MU_BASECORE/BaseTools/Bin/nasm_ext_dep.yaml
 
-      - name: Setup, Update & Build
+      - name: Setup Conf
         run: |
-          stuart_setup -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5
-          stuart_update -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5
-          stuart_build -c Platform/iPhone7Pkg/PlatformBuild.py TOOL_CHAIN_TAG=GCC5 TARGET=DEBUG
+          cd MU_BASECORE
+          make -C BaseTools -j$(nproc)
+          cd ..
+          source MU_BASECORE/BaseTools/edksetup.sh
+
+      - name: Build
+        run: |
+          source MU_BASECORE/BaseTools/edksetup.sh
+          build -p Platform/iPhone7Pkg/iPhone7.dsc -b DEBUG -t GCC5 -a AARCH64
           
       - uses: actions/upload-artifact@v4
         with:
